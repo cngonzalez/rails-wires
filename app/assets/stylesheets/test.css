@@ -1,0 +1,26 @@
+.clear {
+  clear: both;
+}
+
+#grid {
+  width: 600px;
+}
+
+.grid-element {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+
+.form-div {
+  margin-left: 20px;
+  float: left;
+}
+
+.navbar-collapse {
+  /*background-color: red;*/
+}
+
+.navbar li {
+  height: 150px;
+}
