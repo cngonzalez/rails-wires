@@ -18,13 +18,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Sign up</a></li>
-        <li><a href="#">Sign in</a></li>
+        <li> <%= link_to 'Sign up', new_user_registration_path %> </li>
+        <li> <%= link_to 'Sign in', new_user_session_path %> </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    <div id="main-container" class="container">
+    <div id="main-container" class="container-fluid">
       <%= yield %>
     </div>
   </body>

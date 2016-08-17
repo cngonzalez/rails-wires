@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816190336) do
+ActiveRecord::Schema.define(version: 20160817130034) do
+
+  create_table "elements", force: :cascade do |t|
+    t.string   "position"
+    t.string   "color"
+    t.integer  "size"
+    t.integer  "div"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_elements_on_page_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_likes_on_page_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "filepath"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "body_color"
+    t.index ["user_id"], name: "index_pages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

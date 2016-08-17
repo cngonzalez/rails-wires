@@ -3,18 +3,25 @@
 }
 
 #grid {
-  width: 600px;
+  max-width: 475px;
+  max-height: 475px;
+  float: left;
 }
 
 .grid-element {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   float: left;
+  overflow: hidden;
+  margin: 3px;
+  background-color: grey;
+  text-align: center;
 }
 
 .form-div {
   margin-left: 20px;
   float: left;
+  text-align: left;
 }
 
 .navbar-collapse {
@@ -22,5 +29,5 @@
 }
 
 .navbar li {
-  height: 150px;
+  /*height: 150px;*/
 }

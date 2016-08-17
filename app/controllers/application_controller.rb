@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
     render 'index'
   end
 
-  def stuff
-  end 
+  def test
+  end
 
 
 end
