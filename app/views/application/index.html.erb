@@ -2,17 +2,24 @@
 
 <% 3.times do |grid_index| %>
   <div class="row">
+
     <% 3.times do |row_index| %>
-    <div class="col-sm-4">
-      <% element = @page.get_element((grid_index * 3) + row_index + 1) %>
-        <% if !element %>
-        <%= Faker::Lorem.paragraph(5) %>
+      <% index = ((grid_index * 3) + row_index + 1) %>
+
+        <% if !@page.get_element(index) %>
+        <div class="col-sm-4">
+          <%= Faker::Lorem.paragraph(5) %>
+        </div>
+
         <% else %>
-        <div id="<%= element.div_type %>">
+
+        <div class="col-sm-4">
+        <div id="<%= @page.get_element(index).div_type %>">
           <img src="images/transparent.png" alt="" />
         </div>
+      </div>
+
         <% end %>
-    </div>
     <% end %>
   </div>
 <%end%>
