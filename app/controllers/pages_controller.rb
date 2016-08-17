@@ -8,8 +8,18 @@ class PagesController < ApplicationController
   end
 
   def create
+    page = Page.create(page_params)
+    redirect_to page_path(page)
+  end
+
+  def index
     byebug
-    Page.create(page_params)
+  end
+
+  def show
+    byebug
+    @page = Page.find(2)
+    @page.build_css if !@page.filepath
   end
 
   def page_params

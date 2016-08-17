@@ -29,5 +29,11 @@
 }
 
 .navbar li {
-  /*height: 150px;*/
+  height: 150px;
 }
+
+#test{
+  margin: 0 auto;
+}
+
+.sample_text { font: 14px/1.8 Georgia, serif; }

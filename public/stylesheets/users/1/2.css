@@ -1,0 +1,20 @@
+.navbar-collapse {
+max-height: 350px;
+background-color: #cce6ff;
+}
+
+
+max-width: 400px;
+max-height: 200px;
+background-color: #d9ffcc;
+}
+
+.navbar-collapse {
+max-height: 500px;
+background-color: green;
+}
+
+body {
+background: #ffffcc;
+}
+ 

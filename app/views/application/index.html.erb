@@ -1,1 +1,11 @@
-<img src="images/grey-box.jpg" class="img-circle" alt="Cinque Terre" width="236" height="236">
+<div class="container">
+
+<% 3.times do |grid_index| %>
+  <div class="row">
+    <% 3.times do |row_index| %>
+    <div class="col-sm-4"><%= @page.lorem_or_element((3 * grid_index) + row_index + 1) %></div>
+    <% end %>
+  </div>
+<%end%>
+
+</div>
