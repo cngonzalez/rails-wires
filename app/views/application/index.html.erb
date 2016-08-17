@@ -3,7 +3,16 @@
 <% 3.times do |grid_index| %>
   <div class="row">
     <% 3.times do |row_index| %>
-    <div class="col-sm-4"><%= @page.lorem_or_element((3 * grid_index) + row_index + 1) %></div>
+    <div class="col-sm-4">
+      <% element = @page.get_element((grid_index * 3) + row_index + 1) %>
+        <% if !element %>
+        <%= Faker::Lorem.paragraph(5) %>
+        <% else %>
+        <div id="<%= element.div_type %>">
+          <img src="images/transparent.png" alt="" />
+        </div>
+        <% end %>
+    </div>
     <% end %>
   </div>
 <%end%>

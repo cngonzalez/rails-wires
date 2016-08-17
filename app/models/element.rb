@@ -29,6 +29,7 @@ class Element < ApplicationRecord
       f.puts self.write_type
       f.puts write_width if self.div != 1
       f.puts write_height if self.div != 0
+      f.puts "border-radius: 50%;" if self.div == 2
       f.puts "background-color: #{self.color};"
       f.puts "}"
       f.puts ""
@@ -39,7 +40,8 @@ class Element < ApplicationRecord
     hash = {
       0 => '#element-sidebar {',
       1 => '.navbar-collapse {',
-      2 => "#image-element-#{self.id} {"
+      2 => "#circle-#{self.id} {",
+      3 => "#rectangle-#{self.id} {"
     }
     hash[self.div]
   end
@@ -48,7 +50,7 @@ class Element < ApplicationRecord
     hash = {
       0 => 'max-width: 200px;',
       1 => 'max-width: 400px;',
-      2 => 'max-width: 600px;'
+      2 => 'max-width: 500px;'
     }
     hash[self.size]
   end
@@ -57,13 +59,17 @@ class Element < ApplicationRecord
       hash = {
         0 => 'max-height: 200px;',
         1 => 'max-height: 350px;',
-        2 => 'max-height: 500px;',
+        2 => "max-height: 500px;",
         3 => 'max-height: 650px;'
       }
       if self.div == 3
         hash[(self.size - 1)]
       else hash[self.size]
       end
+    end
+
+    def div_type
+      write_type[1..-1].chomp(" {")
     end
 
 

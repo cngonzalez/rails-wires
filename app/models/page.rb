@@ -23,6 +23,10 @@ class Page < ApplicationRecord
     self.update(filepath: "users/#{self.user_id}/#{self.id}.css")
   end
 
+  def get_element(index)
+    element = self.elements.where(position: index).where.not("div < ?", 2).first
+    element
+  end
 
 
 end
