@@ -34,8 +34,6 @@ end
 def rando_image
   pics = Dir.entries('public/pages/images').select{|filename| filename.length > 3 }
   "images/#{pics.sample}"
-  
-  #wash color over an image
 end
 
 

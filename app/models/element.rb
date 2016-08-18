@@ -28,12 +28,14 @@ class Element < ApplicationRecord
   def write_block(file)
     File.open(file, 'a') do |f|
       f.puts self.write_type
+      f.puts "overflow: hidden;"
       f.puts write_width if self.div != 1
       f.puts write_height if self.div != 0
       f.puts "border-radius: 50%;" if self.div == 2
       f.puts "background-color: #{self.color};"
-      f.puts "overflow: hidden;"
       f.puts "}"
+      f.puts ""
+      f.puts ".#{self.div_type} img {opacity:0.75;}" if self.div > 1
       f.puts ""
     end
   end
@@ -73,6 +75,9 @@ class Element < ApplicationRecord
     def div_type
       write_type[1..-1].chomp(" {")
     end
+
+
+
 
 
 

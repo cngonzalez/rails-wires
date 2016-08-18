@@ -44,3 +44,7 @@ p { font: 14px/1.8 Georgia, serif; }
     justify-content: center;    /* center items vertically, in this case */
     align-items: center;        /* center items horizontally, in this case */
 }
+
+.row {
+  min-height: 300px;
+}
