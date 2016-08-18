@@ -1,10 +1,12 @@
   <nav class="navbar navbar-default" >
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <div class="collapse navbar-collapse">
+    <div class="centering-container down-touch">
   <% if current_user %>
   <%= render 'signed_in' %>
   <% else %>
   <% render 'signed_out' %>
   <% end %>
+</div>
 </div>
 </nav>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818154543) do
+ActiveRecord::Schema.define(version: 20160818185729) do
 
   create_table "elements", force: :cascade do |t|
     t.string   "position"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160818154543) do
     t.integer  "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "comment"
     t.index ["page_id"], name: "index_likes_on_page_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end

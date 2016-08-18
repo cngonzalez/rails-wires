@@ -1,5 +1,4 @@
-<h2>Create a page template:</h2>
-<%= form_for @page do |f| %>
+<%= form_for [current_user, @page] do |f| %>
 <%= f.label :name %> <br>
 <%= f.text_field :name %> <br>
 <h3>Colors</h3>

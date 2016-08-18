@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-sm-6">
 <div id="grid">
 <% 9.times do |i| %>
     <div class="grid-element">
@@ -10,9 +10,14 @@
 </div>
 
 
-<div class="col-sm-4">
+<div class="col-sm-6">
   <div class="form-div">
-  <%= render 'form' %>
+    <div class="row">
+      <h2>Create a page template:</h2>
+    </div>
+    <div class="row">
+      <%= render 'form' %>
+    </div>
 </div>
 </div>
 </div>

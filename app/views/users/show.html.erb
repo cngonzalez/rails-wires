@@ -1,0 +1,19 @@
+<div class="row">
+  <h1 class="text-center">Home</h1>
+</div>
+
+<div class="row">
+  <% @user ||= current_user %>
+
+  <div class="col-sm-6 home-column">
+    <h3>My pages</h3>
+    <%= render partial: 'list_pages', locals: {pages: @user.pages} %>
+  </div>
+
+  <div class="col-sm-6 home-column">
+    <h3>Liked pages</h3>
+      <%= render partial: 'list_pages', locals: {pages: @user.liked_pages} %>
+  </div>
+
+
+</div>

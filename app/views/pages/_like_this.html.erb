@@ -1,5 +1,7 @@
 <%= form_for Like.new do |f| %>
 <%= f.hidden_field :page_id, value: @page.id %>
 <%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.submit 'ADD TO FAVORITES' %>
+<%= f.label 'Comment and add to favorites' %> 
+<%= f.text_field :comment %> <br><br>
+<%= f.submit 'ADD' %>
 <% end %>
