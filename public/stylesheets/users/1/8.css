@@ -6,16 +6,18 @@ background-color: purple;
 
 .circle-22 {
 overflow: hidden;
-
-max-height: 650px;
+max-width: 250px;
+max-height: 250px;
 border-radius: 50%;
 background-color: purple;
 }
 
-.circle-22 img {opacity:0.75;
-max-height: 650px;; }
+.circle-22 img {
+  opacity:0.75;
+  height: 250px;
+  width: 250px;
+}
 
 body {
 background: white;
 }
- 

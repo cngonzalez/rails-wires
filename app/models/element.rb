@@ -29,7 +29,7 @@ class Element < ApplicationRecord
     File.open(file, 'a') do |f|
       f.puts self.write_type
       f.puts "overflow: hidden;"
-      f.puts write_width if self.div != 1
+      f.puts "max-width: #{write_width}" if self.div != 1
       f.puts "max-height: #{write_height}" if self.div != 0
       f.puts "border-radius: 50%;" if self.div == 2
       f.puts "background-color: #{self.color};"
@@ -55,9 +55,9 @@ class Element < ApplicationRecord
 
   def write_width
     hash = {
-      0 => 'max-width: 200px;',
-      1 => 'max-width: 400px;',
-      2 => 'max-width: 500px;',
+      0 => '200px;',
+      1 => '400px;',
+      2 => '500px;',
     }
     hash[self.size]
   end
@@ -69,22 +69,12 @@ class Element < ApplicationRecord
         2 => "500px;",
         3 => '650px;'
       }
-      if self.div == 3
-        hash[(self.size - 1)]
-      else hash[self.size]
-      end
+      self.div == 3 ? hash[(self.size - 1)] : hash[self.size]
     end
 
     def div_type
       write_type[1..-1].chomp(" {")
     end
-
-
-
-
-
-
-
 
 
 end

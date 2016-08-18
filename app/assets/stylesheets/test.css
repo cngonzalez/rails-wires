@@ -19,13 +19,8 @@
 }
 
 .form-div {
-  margin-left: 20px;
   float: left;
   text-align: left;
-}
-
-.navbar-collapse {
-  /*background-color: red;*/
 }
 
 .navbar li {
@@ -43,6 +38,8 @@ p { font: 14px/1.8 Georgia, serif; }
     flex-direction: column;     /* stack flex items vertically */
     justify-content: center;    /* center items vertically, in this case */
     align-items: center;        /* center items horizontally, in this case */
+    max-height: 100%;
+    max-width: 100%;
 }
 
 
@@ -60,6 +57,5 @@ p { font: 14px/1.8 Georgia, serif; }
   float: right;
 }
 
-.row img {
-  max-height: 650px;
+img {
 }

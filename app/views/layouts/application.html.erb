@@ -5,23 +5,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'bootstrap.min.css' %>
     <%= stylesheet_link_tag 'test.css' %>
-    <% if @page && @page.filepath %>
-      <%= stylesheet_link_tag @page.filepath %>
-    <% end %>
+    <%= stylesheet_link_tag @page.filepath if (@page && @page.filepath) %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="container">
       <div class="row">
-    <% if @page && !@page.elements.where(div: 0).empty? %>
-      <%= render 'sidebar' %>
-      <% else %>
-      <%= render 'top_nav' %>
-      <% end %>
+      <%= render choose_nav(@page) if @page %>
       <%= yield %>
     </div>
       </div>
