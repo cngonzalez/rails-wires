@@ -30,13 +30,16 @@ class Element < ApplicationRecord
       f.puts self.write_type
       f.puts "overflow: hidden;"
       f.puts write_width if self.div != 1
-      f.puts write_height if self.div != 0
+      f.puts "max-height: #{write_height}" if self.div != 0
       f.puts "border-radius: 50%;" if self.div == 2
       f.puts "background-color: #{self.color};"
       f.puts "}"
       f.puts ""
-      f.puts ".#{self.div_type} img {opacity:0.75;}" if self.div > 1
-      f.puts ""
+      if self.div > 1
+        f.puts ".#{self.div_type} img {opacity:0.75;"
+        f.puts "max-height: #{write_height} }"
+        f.puts ""
+      end
     end
   end
 
@@ -54,17 +57,17 @@ class Element < ApplicationRecord
     hash = {
       0 => 'max-width: 200px;',
       1 => 'max-width: 400px;',
-      2 => 'max-width: 500px;'
+      2 => 'max-width: 500px;',
     }
     hash[self.size]
   end
 
     def write_height
       hash = {
-        0 => 'max-height: 200px;',
-        1 => 'max-height: 350px;',
-        2 => "max-height: 500px;",
-        3 => 'max-height: 650px;'
+        0 => '200px;',
+        1 => '350px;',
+        2 => "500px;",
+        3 => '650px;'
       }
       if self.div == 3
         hash[(self.size - 1)]

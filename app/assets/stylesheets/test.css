@@ -45,6 +45,21 @@ p { font: 14px/1.8 Georgia, serif; }
     align-items: center;        /* center items horizontally, in this case */
 }
 
-.row {
-  min-height: 300px;
+
+.element-sidebar {
+  z-index: 1000;
+   position: fixed;
+  height: 100%;
+  left: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+}
+
+.scrunch {
+  float: right;
+}
+
+.row img {
+  max-height: 650px;
 }

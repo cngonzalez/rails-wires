@@ -1,0 +1,9 @@
+<div class= "col-sm-3 element-sidebar">
+  <ul class="sidebar-nav">
+    <% if current_user %>
+    <%= render 'signed_in' %>
+    <% else %>
+    <% render 'signed_out' %>
+    <% end %>
+</div>
+<div class="col-sm-9 scrunch">

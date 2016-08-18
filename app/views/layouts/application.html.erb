@@ -15,17 +15,16 @@
   </head>
 
   <body>
-    <% unless @page && (!@page.elements.where(div: 0).empty?) %>
-  <nav class="navbar navbar-default">
-    <% if current_user %>
-    <%= render 'signed_in' %>
-    <% else %>
-    <% render 'signed_out' %>
-    <% end %>
-  </nav>
-<% end %>
-    <div id="main-container" class="container-fluid">
+    <div class="container">
+      <div class="row">
+    <% if @page && !@page.elements.where(div: 0).empty? %>
+      <%= render 'sidebar' %>
+      <% else %>
+      <%= render 'top_nav' %>
+      <% end %>
       <%= yield %>
     </div>
+      </div>
+    </div>
   </body>
-</html>
+  </html>

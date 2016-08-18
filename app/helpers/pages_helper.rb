@@ -19,9 +19,9 @@ end
 def flatten_row(row)
   if row[0] == row[1] && row[0] == row[2]
     ["col-sm-12"]
-  elsif row[0] == "col-sm-4" && row[1] == "col-sm-4"
+  elsif row[0] ==row[1]
     ["col-sm-8", row[2]]
-  elsif row[1] == "col-sm-4" && row[2] == "col-sm-4"
+  elsif row[1] == row[2] 
     [row[0], "col-sm-8"]
   else row
   end

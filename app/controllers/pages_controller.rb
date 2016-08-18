@@ -26,7 +26,7 @@ class PagesController < ApplicationController
 
   def page_params
     par = params.require(:page).permit(:body_color, :text_color, :accent_color, :name, elements_attributes: [:div, :position, :size])
-    par[:elements_attributes].keep_if{|k, v| v[:div] != 4}
+    par[:elements_attributes].select!{|k, v| v[:div] != 4.to_s}
     par
   end
 
