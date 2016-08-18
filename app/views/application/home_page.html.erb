@@ -1,0 +1,8 @@
+<h1>My homepage</h1>
+
+<h2>My page templates</h2>
+<% i = 0 %>
+<% @user.pages.each do |page| %>
+<% i += 1%>
+<%= link_to "Page #{i}", page_path(page) %>
+<% end %>

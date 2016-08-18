@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817130034) do
+ActiveRecord::Schema.define(version: 20160818013613) do
 
   create_table "elements", force: :cascade do |t|
     t.string   "position"
@@ -35,9 +35,12 @@ ActiveRecord::Schema.define(version: 20160817130034) do
   create_table "pages", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "filepath"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "body_color"
+    t.string   "text_color"
+    t.string   "accent_color"
+    t.string   "name"
     t.index ["user_id"], name: "index_pages_on_user_id"
   end
 

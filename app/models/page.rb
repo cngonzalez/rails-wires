@@ -6,7 +6,10 @@ class Page < ApplicationRecord
   # accepts_nested_attributes_for :elements
 
   def elements_attributes=(hash)
-    hash.each{|k, v| self.elements.build(v)}
+    hash.each do |k, v|
+      element = self.elements.build(v)
+      element.color = self.accent_color
+    end
   end
 
   def build_css
@@ -24,9 +27,45 @@ class Page < ApplicationRecord
   end
 
   def get_element(index)
-    element = self.elements.where(position: index).where.not("div < ?", 2).first
+    element = self.elements.where(position: index).first
     element
   end
+
+
+    # def get_columns
+    #   first = [nil, nil, nil]
+    #   second = [nil, nil, nil]
+    #   third = [nil, nil, nil]
+    #   els = self.elements.map(&:position)
+    #   row_1 = get_row(els, first, 0)
+    #   row_2 = get_row(els, second, 3)
+    #   row_3 = get_row(els, third, 6)
+    #   byebug
+    # end
+    #
+    # def get_row(els, array, add_on)
+    #   array.each_with_index do |position, index|
+    #     index += add_on
+    #     element = get_element(index + 1)
+    #     byebug
+    #     if element
+    #       array[index] = "col-sm-4 #{element.div_type}"
+    #     else array[index] = "col-sm-4"
+    #     end
+    #   end
+    # end
+    #
+    # def flatten(array)
+    #   array.each_with_index do |pos, i|
+    #     if array[i] && array[i + 1]
+    #       if array[i] == "col-sm-4" && array[i] == "col-sm-4"
+    #         array.delete_at(i + 1)
+    #         array[i] == "col-sm-8"
+    #       end
+    #     end
+    #   end
+    # end
+
 
 
 end

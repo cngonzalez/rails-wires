@@ -6,7 +6,8 @@ class Element < ApplicationRecord
       :'navigation bar - left side' => 0,
       :'navigation bar - top' => 1,
       :'image - circle' => 2,
-      :'image - rectangle' => 3
+      :'image - rectangle' => 3,
+      :'none' => 4
     }
   end
 
@@ -31,6 +32,7 @@ class Element < ApplicationRecord
       f.puts write_height if self.div != 0
       f.puts "border-radius: 50%;" if self.div == 2
       f.puts "background-color: #{self.color};"
+      f.puts "overflow: hidden;"
       f.puts "}"
       f.puts ""
     end
@@ -38,10 +40,10 @@ class Element < ApplicationRecord
 
   def write_type
     hash = {
-      0 => '#element-sidebar {',
+      0 => '.element-sidebar {',
       1 => '.navbar-collapse {',
-      2 => "#circle-#{self.id} {",
-      3 => "#rectangle-#{self.id} {"
+      2 => ".circle-#{self.id} {",
+      3 => ".rectangle-#{self.id} {"
     }
     hash[self.div]
   end

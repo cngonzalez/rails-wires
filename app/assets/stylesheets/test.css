@@ -36,4 +36,11 @@
   margin: 0 auto;
 }
 
-.sample_text { font: 14px/1.8 Georgia, serif; }
+p { font: 14px/1.8 Georgia, serif; }
+
+.centering-container {
+  display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center;        /* center items horizontally, in this case */
+}

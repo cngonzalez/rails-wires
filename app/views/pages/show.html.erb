@@ -1,0 +1,23 @@
+<div class="container">
+
+<% make_rows(@page).each do |row| %>
+<div class="row">
+  <% row.each do |div| %>
+  <div class="<%=div%>">
+    <div class="centering-container">
+    <% if is_element?(div) %>
+      <img src="<%= rando_image %>" alt="" />
+    <% else %>
+      <h3><%= Faker::Lorem.sentence %> </h3>
+      <p> <%= Faker::Lorem.paragraph(10) %> </p>
+    <%end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+
+  </div>
+
+</div>

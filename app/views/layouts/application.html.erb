@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'bootstrap.min.css' %>
     <%= stylesheet_link_tag 'test.css' %>
-    <% if @page %>
+    <% if @page && @page.filepath %>
       <%= stylesheet_link_tag @page.filepath %>
     <% end %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,14 +17,12 @@
   <body>
     <% unless @page && (!@page.elements.where(div: 0).empty?) %>
   <nav class="navbar navbar-default">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li> <%= link_to 'Sign up', new_user_registration_path %> </li>
-        <li> <%= link_to 'Sign in', new_user_session_path %> </li>
-      </ul>
-      </div>
-    </div><!-- /.navbar-collapse -->
-</nav>
+    <% if current_user %>
+    <%= render 'signed_in' %>
+    <% else %>
+    <% render 'signed_out' %>
+    <% end %>
+  </nav>
 <% end %>
     <div id="main-container" class="container-fluid">
       <%= yield %>

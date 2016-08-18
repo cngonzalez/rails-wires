@@ -1,27 +1,7 @@
-<div class="container">
 
-<% 3.times do |grid_index| %>
-  <div class="row">
 
-    <% 3.times do |row_index| %>
-      <% index = ((grid_index * 3) + row_index + 1) %>
-
-        <% if !@page.get_element(index) %>
-        <div class="col-sm-4">
-          <%= Faker::Lorem.paragraph(5) %>
-        </div>
-
-        <% else %>
-
-        <div class="col-sm-4">
-        <div id="<%= @page.get_element(index).div_type %>">
-          <img src="images/transparent.png" alt="" />
-        </div>
-      </div>
-
-        <% end %>
-    <% end %>
-  </div>
-<%end%>
-
-</div>
+TO DO:
+navbar
+make everthing look prettier! (headlines, font, vertical centering, possibly framed photos)
+button to like!
+user profile!

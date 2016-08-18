@@ -2,12 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    @page = Page.find(2)
-    render 'index'
+    if current_user
+      @user = current_user
+      render 'home_page'
+    else redirect_to new_user_registration_path
+    end
   end
 
-  def test
-  end
-
+  
 
 end

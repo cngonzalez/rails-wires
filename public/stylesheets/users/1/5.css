@@ -1,0 +1,22 @@
+.navbar-collapse {
+max-height: 350px;
+background-color: blue;
+}
+
+.rectangle-13 {
+max-width: 400px;
+max-height: 200px;
+background-color: blue;
+overflow: hidden;
+}
+
+.rectangle-14 {
+max-width: 500px;
+max-height: 350px;
+background-color: blue;
+overflow: hidden;
+}
+
+body {
+background: white;
+}
