@@ -6,16 +6,17 @@ background-color: purple;
 
 .circle-22 {
 overflow: hidden;
-max-width: 250px;
-max-height: 250px;
 border-radius: 50%;
 background-color: purple;
+max-height: 300px;
+max-width: 300px;
+justify-content: center;    /* center items vertically, in this case */
+align-items: center;        /* center items horizontally, in this case */
 }
 
 .circle-22 img {
   opacity:0.75;
-  height: 250px;
-  width: 250px;
+  overflow: hidden;
 }
 
 body {

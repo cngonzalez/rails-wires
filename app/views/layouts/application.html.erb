@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'bootstrap.min.css' %>
     <%= stylesheet_link_tag 'test.css' %>
     <%= stylesheet_link_tag @page.filepath if (@page && @page.filepath) %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -17,7 +18,7 @@
       <div class="row">
       <%= render choose_nav(@page) %>
       <%= notice if notice %>
-      <%= alert if alert %> 
+      <%= alert if alert %>
       <%= yield %>
     </div>
     </div>

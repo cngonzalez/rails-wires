@@ -21,7 +21,7 @@ def flatten_row(row)
     ["col-sm-12"]
   elsif row[0] ==row[1]
     ["col-sm-8", row[2]]
-  elsif row[1] == row[2] 
+  elsif row[1] == row[2]
     [row[0], "col-sm-8"]
   else row
   end
@@ -34,6 +34,13 @@ end
 def rando_image
   pics = Dir.entries('public/pages/images').select{|filename| filename.length > 3 }
   "images/#{pics.sample}"
+end
+
+def like_box
+  if current_user.id == @page.user_id
+    'owner'
+  else 'like_this'
+  end
 end
 
 

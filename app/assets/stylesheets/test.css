@@ -1,3 +1,4 @@
+
 .clear {
   clear: both;
 }
@@ -24,7 +25,19 @@
 }
 
 .navbar li {
+  padding: 5px;
   height: 150px;
+}
+
+.nav li a {
+  border-style: solid;
+  border-width: 4px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  bottom: 0;
+  margin: 10px;
 }
 
 #test{
@@ -38,8 +51,6 @@ p { font: 14px/1.8 Georgia, serif; }
     flex-direction: column;     /* stack flex items vertically */
     justify-content: center;    /* center items vertically, in this case */
     align-items: center;        /* center items horizontally, in this case */
-    max-height: 100%;
-    max-width: 100%;
 }
 
 
@@ -57,5 +68,18 @@ p { font: 14px/1.8 Georgia, serif; }
   float: right;
 }
 
-img {
+#like_box {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+}
+
+#like_box input {
+  background-color: white;
+  width: 100%;
+  margin: auto;
 }

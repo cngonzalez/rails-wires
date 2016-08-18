@@ -31,6 +31,11 @@ class Page < ApplicationRecord
     element
   end
 
+  def nav
+    nav = self.elements.where(div: 1).first
+    nav.write_height.chomp(";")
+  end
+
 
     # def get_columns
     #   first = [nil, nil, nil]
