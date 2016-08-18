@@ -15,10 +15,11 @@
   <body>
     <div class="container">
       <div class="row">
-      <%= render choose_nav(@page) if @page %>
+      <%= render choose_nav(@page) %>
+      <%= notice if notice %>
+      <%= alert if alert %> 
       <%= yield %>
     </div>
-      </div>
     </div>
   </body>
   </html>
