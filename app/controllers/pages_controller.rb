@@ -22,7 +22,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-    @page.build_css
+    # @page.build_css
   end
 
   def edit
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
     if page.update(page_params)
       redirect_to page_path(page)
     else redirect_to edit_page_path(page)
-    end 
+    end
   end
 
   def page_params
