@@ -1,56 +1,55 @@
 .navbar-collapse {
 overflow: hidden;
 max-height: 500px;
+border-radius: 3px;
+border: solid pink 3px;
 background-color: pink;
-justify-content: center;
-align-items: center;
 }
 
 .rectangle-7 {
 overflow: hidden;
+max-width: 650px;
 max-height: 500px;
+border-radius: 3px;
+border: solid pink 3px;
 background-color: pink;
 }
 
-.rectangle-7 img {
-  opacity: 0.75;
-  object-fit: cover;
+.rectangle-7 img {opacity: 0.75;
+object-fit: cover;
 }
 
 .rectangle-8 {
 overflow: hidden;
 max-width: 400px;
 max-height: 200px;
+border-radius: 3px;
+border: solid pink 3px;
 background-color: pink;
-justify-content: center;
-align-items: center;
 }
 
-.rectangle-8 img {
-  opacity: 0.75;
-  object-fit: cover;
+.rectangle-8 img {opacity: 0.75;
+object-fit: cover;
 }
 
 .navbar-collapse {
 overflow: hidden;
 max-height: 500px;
+border-radius: 3px;
+border: solid pink 3px;
 background-color: pink;
-justify-content: center;
-align-items: center;
 }
 
 .circle-10 {
 overflow: hidden;
-max-width:
+max-width: 650px;
 max-height: 650px;
 border-radius: 50%;
+border: solid pink 3px;
 background-color: pink;
-justify-content: center;
-align-items: center;
 }
 
 .circle-10 img {opacity: 0.75;
-max-height: 650px;
 object-fit: cover;
 }
 
@@ -59,13 +58,11 @@ overflow: hidden;
 max-width: 400px;
 max-height: 350px;
 border-radius: 50%;
+border: solid pink 3px;
 background-color: pink;
-justify-content: center;
-align-items: center;
 }
 
 .circle-11 img {opacity: 0.75;
-max-height: 350px;
 object-fit: cover;
 }
 
@@ -73,3 +70,4 @@ body {
 background: black;
 }
 .test-page {color: white}
+ 

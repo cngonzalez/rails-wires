@@ -22,7 +22,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-    # @page.build_css
+    @page.build_css
   end
 
   def edit
