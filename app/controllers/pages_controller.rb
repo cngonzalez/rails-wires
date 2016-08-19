@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  #validate before new, create, delete
+
 
   def new
     @page = Page.new
@@ -17,7 +19,7 @@ class PagesController < ApplicationController
   end
 
   def index
-    byebug
+    @pages = Page.all
   end
 
   def show
@@ -27,6 +29,7 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
+    redirect_to pages_path if @page.not_authorized(current_user)
   end
 
   def update
@@ -41,6 +44,10 @@ class PagesController < ApplicationController
     par = params.require(:page).permit(:body_color, :text_color, :accent_color, :name, elements_attributes: [:div, :position, :size])
     par[:elements_attributes].select!{|k, v| v[:div] != 4.to_s}
     par
+  end
+
+  def destroy
+    Page.find(params[:id]).destroy
   end
 
 

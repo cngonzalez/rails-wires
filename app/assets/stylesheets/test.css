@@ -1,3 +1,31 @@
+p, h1, h2, h3 {
+  font: 1.8 Georgia, serif;
+  color: white;
+}
+
+body {
+  background-color: #263037;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+form {
+  color: white;
+}
+
+form input {
+  color: black;
+}
+
+.field {
+  color: white;
+}
+
+.field input {
+  color: black;
+}
 
 .clear {
   clear: both;
@@ -41,9 +69,6 @@
   bottom: 0;
   margin: 10px;
 }
-
-
-p { font: 14px/1.8 Georgia, serif; }
 
 .centering-container {
   display: flex;              /* establish flex container */
@@ -132,4 +157,9 @@ p { font: 14px/1.8 Georgia, serif; }
 
 .test-page {
   padding: 30px;
+}
+
+.comments {
+  font-style: italic;
+  font-size: 10px;
 }

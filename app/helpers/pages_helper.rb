@@ -37,10 +37,7 @@ def rando_image
 end
 
 def like_box
-  if current_user.id == @page.user_id
-    'owner'
-  else 'like_this'
-  end
+  (current_user.id == @page.user_id)? 'owner' : 'like_this'
 end
 
 def header

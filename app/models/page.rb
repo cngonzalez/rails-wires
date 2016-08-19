@@ -3,7 +3,7 @@ class Page < ApplicationRecord
   has_many :likers, through: :likes, source: :user
   has_many :elements
 
-  # accepts_nested_attributes_for :elements
+  #validates for validity -- nothing in position one, nothing in the same place, must have name
 
   def elements_attributes=(hash)
     hash.each do |k, v|
@@ -17,19 +17,12 @@ class Page < ApplicationRecord
     Dir.mkdir(directory_name) if !Dir.exist?(directory_name)
     file = File.open("#{directory_name}/#{self.id}.css", 'w')
     self.elements.each_with_object(file){ |el, file| el.write_block(file) }
-    File.open(file, 'a') do |f|
-      f.puts "body {"
-      f.puts "background: #{self.body_color};"
-      f.puts "}"
-      f.puts ".test-page {color: #{self.text_color}}"
-      f.puts " "
-    end
+    body_elements(file)
     self.update(filepath: "users/#{self.user_id}/#{self.id}.css")
   end
 
   def get_element(index)
-    element = self.elements.where(position: index).first
-    element
+    self.elements.where(position: index).first
   end
 
   def nav
@@ -37,40 +30,29 @@ class Page < ApplicationRecord
     nav.write_height.chomp(";")
   end
 
+  def body_elements(file)
+    File.open(file, 'a') do |f|
+      f.puts "body {"
+      f.puts "background: #{self.body_color};"
+      f.puts "}"
+      f.puts ".test-page {color: #{self.text_color}}"
+      f.puts " "
+    end
+  end
 
-    # def get_columns
-    #   first = [nil, nil, nil]
-    #   second = [nil, nil, nil]
-    #   third = [nil, nil, nil]
-    #   els = self.elements.map(&:position)
-    #   row_1 = get_row(els, first, 0)
-    #   row_2 = get_row(els, second, 3)
-    #   row_3 = get_row(els, third, 6)
-    #   byebug
-    # end
-    #
-    # def get_row(els, array, add_on)
-    #   array.each_with_index do |position, index|
-    #     index += add_on
-    #     element = get_element(index + 1)
-    #     byebug
-    #     if element
-    #       array[index] = "col-sm-4 #{element.div_type}"
-    #     else array[index] = "col-sm-4"
-    #     end
-    #   end
-    # end
-    #
-    # def flatten(array)
-    #   array.each_with_index do |pos, i|
-    #     if array[i] && array[i + 1]
-    #       if array[i] == "col-sm-4" && array[i] == "col-sm-4"
-    #         array.delete_at(i + 1)
-    #         array[i] == "col-sm-8"
-    #       end
-    #     end
-    #   end
-    # end
+  def not_authorized(user)
+     if !(user.id == self.user_id)
+      flash[:alert] = "You're not authorized to edit this page."
+    end
+    !(user.id == self.user_id)
+  end
+
+  def destroy
+    super
+    path = Dir.pwd + "/public/stylesheets/#{self.filepath}"
+    File.delete(path)
+  end
+
 
 
 
