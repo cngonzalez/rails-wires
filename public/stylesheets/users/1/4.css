@@ -1,21 +1,34 @@
 .element-sidebar {
+overflow: hidden;
 max-width: 400px;
 background-color: purple;
 }
 
-.circle- {
+.circle-10 {
+overflow: hidden;
 max-width: 500px;
 max-height: 500px;
 border-radius: 50%;
 background-color: purple;
 }
 
+.circle-10 img {opacity:0.75;
+max-height: 500px;
+object-fit: cover;}
 
+.rectangle-11 {
+overflow: hidden;
 max-width: 400px;
-max-height: 350px;
+max-height: 200px;
 background-color: purple;
 }
+
+.rectangle-11 img {opacity:0.75;
+max-height: 200px;
+object-fit: cover;}
 
 body {
 background: white;
 }
+.test-page {color: black}
+ 

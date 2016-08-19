@@ -15,12 +15,13 @@ class Page < ApplicationRecord
   def build_css
     directory_name = Dir.pwd + "/public/stylesheets/users/#{self.user_id}"
     Dir.mkdir(directory_name) if !Dir.exist?(directory_name)
-    file = File.open("#{directory_name}/#{self.id}.css", 'w+')
+    file = File.open("#{directory_name}/#{self.id}.css", 'w')
     self.elements.each_with_object(file){ |el, file| el.write_block(file) }
     File.open(file, 'a') do |f|
       f.puts "body {"
       f.puts "background: #{self.body_color};"
       f.puts "}"
+      f.puts ".test-page {color: #{self.text_color}}"
       f.puts " "
     end
     self.update(filepath: "users/#{self.user_id}/#{self.id}.css")

@@ -1,2 +1,2 @@
-<%= button_to 'EDIT THIS PAGE', edit_user_page_path(@page, current_user) %>
-<%= button_to 'DELETE', delete_user_page_path(@page, current_user), method: 'delete' %> 
+<%= button_to 'EDIT THIS PAGE', edit_page_path(@page), method: 'get' %>
+<%= button_to 'DELETE', page_path(@page), method: 'delete' %>

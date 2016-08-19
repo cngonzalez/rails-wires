@@ -33,11 +33,15 @@ class Element < ApplicationRecord
       f.puts "max-height: #{write_height}" if self.div != 0
       f.puts "border-radius: 50%;" if self.div == 2
       f.puts "background-color: #{self.color};"
+      f.puts "justify-content: center;"
+      f.puts "align-items: center;"
       f.puts "}"
       f.puts ""
       if self.div > 1
-        f.puts ".#{self.div_type} img {opacity:0.75;"
-        f.puts "max-height: #{write_height} }"
+        f.puts ".#{self.div_type} img {opacity: 0.75;"
+        f.puts "max-height: #{write_height}"
+        f.puts "object-fit: cover;"
+        f.puts "}"
         f.puts ""
       end
     end

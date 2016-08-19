@@ -1,0 +1,79 @@
+.navbar-collapse {
+overflow: hidden;
+max-height: 500px;
+background-color: pink;
+justify-content: center;
+align-items: center;
+}
+
+.rectangle-7 {
+overflow: hidden;
+max-width: 
+max-height: 500px;
+background-color: pink;
+justify-content: center;
+align-items: center;
+}
+
+.rectangle-7 img {opacity: 0.75;
+max-height: 500px;
+object-fit: cover;
+}
+
+.rectangle-8 {
+overflow: hidden;
+max-width: 400px;
+max-height: 200px;
+background-color: pink;
+justify-content: center;
+align-items: center;
+}
+
+.rectangle-8 img {opacity: 0.75;
+max-height: 200px;
+object-fit: cover;
+}
+
+.navbar-collapse {
+overflow: hidden;
+max-height: 500px;
+background-color: pink;
+justify-content: center;
+align-items: center;
+}
+
+.circle-10 {
+overflow: hidden;
+max-width: 
+max-height: 650px;
+border-radius: 50%;
+background-color: pink;
+justify-content: center;
+align-items: center;
+}
+
+.circle-10 img {opacity: 0.75;
+max-height: 650px;
+object-fit: cover;
+}
+
+.circle-11 {
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 50%;
+background-color: pink;
+justify-content: center;
+align-items: center;
+}
+
+.circle-11 img {opacity: 0.75;
+max-height: 350px;
+object-fit: cover;
+}
+
+body {
+background: black;
+}
+.test-page {color: white}
+ 

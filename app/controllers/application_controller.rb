@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   def index
     if current_user
       @user = current_user
-      render 'home_page'
-    else redirect_to new_user_registration_path
+      redirect_to user_path(@user)
+    else render 'index'
     end
   end
 
-  
+
 
 end

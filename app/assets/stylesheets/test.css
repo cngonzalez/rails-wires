@@ -42,18 +42,15 @@
   margin: 10px;
 }
 
-#test{
-  margin: 0 auto;
-}
 
 p { font: 14px/1.8 Georgia, serif; }
-
+/*
 .centering-container {
-  display: flex;              /* establish flex container */
-    flex-direction: column;     /* stack flex items vertically */
-    justify-content: center;    /* center items vertically, in this case */
-    align-items: center;        /* center items horizontally, in this case */
-}
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
 
 
 .element-sidebar {
@@ -61,9 +58,9 @@ p { font: 14px/1.8 Georgia, serif; }
    position: fixed;
   height: 100%;
   left: 250px;
-    height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
 }
 
 .scrunch {
@@ -98,6 +95,39 @@ p { font: 14px/1.8 Georgia, serif; }
   padding: 20px;
 }
 
-.down-touch{
-  padding-top: 30px;
+.splash {
+  position: relative;
+  min-height: 725px;
+  background-image: url('deep-sea-detail-depths.jpg');
+  background-size: cover;
+}
+
+.splash-box {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  color: white;
+  margin: auto;
+  padding: 20px;
+  width: 400px;
+  height: 250px;
+  z-index: 2;
+  text-align: center;
+}
+
+.splash-box h1 {
+  font-size: 65px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 2px;
+}
+
+.splash-box h2 {
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.center-splash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

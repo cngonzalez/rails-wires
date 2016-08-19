@@ -43,6 +43,10 @@ def like_box
   end
 end
 
+def header
+  params[:action] == 'new' ? 'Create a page template' : 'Edit this page template'
+end
+
 
 
 end
