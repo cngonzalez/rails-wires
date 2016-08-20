@@ -1,5 +1,13 @@
 class Element < ApplicationRecord
   belongs_to :page
+  validate :navbar_position
+
+  def navbar_position
+    if self.div < 2 && self.position != "1"
+      byebug
+      errors.add(:position, "Navbar must be in position 1")
+    end
+  end
 
   def self.div_types
     hash = {

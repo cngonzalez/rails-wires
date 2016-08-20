@@ -1,20 +1,20 @@
 class PagesController < ApplicationController
   #validate before new, create, delete
 
-
   def new
     @page = Page.new
-    @page.elements.build(div: 0)
-    @page.elements.build(div: 3)
-    @page.elements.build(div: 3)
+    @page.elements.build(div: 1)
+    @page.elements.build(div: 4)
+    @page.elements.build(div: 4)
   end
 
   def create
-    page = Page.new(page_params)
-    page.user_id = current_user.id
-    if page.save
-      page.build_css
-      redirect_to page_path(page)
+    @page = Page.new(page_params)
+    @page.user_id = current_user.id
+    if @page.valid?
+      @page.save
+      redirect_to page_path(@page)
+    else render 'new'
     end
   end
 
@@ -29,14 +29,16 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
-    redirect_to pages_path if @page.not_authorized(current_user)
+    redirect_to page_path(@page) if @page.not_authorized(current_user)
   end
 
   def update
-    page = Page.find(params[:id])
-    if page.update(page_params)
-      redirect_to page_path(page)
-    else redirect_to edit_page_path(page)
+    @page = Page.find(params[:id])
+    @page.rebuild
+    @page.update(page_params)
+    if @page.valid?
+      redirect_to page_path(@page)
+    else render 'edit'
     end
   end
 
@@ -47,7 +49,11 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    Page.find(params[:id]).destroy
+    page = Page.find(params[:id])
+    redirect_to pages_path if page.not_authorized(current_user)
+    page.destroy
+    flash[:notice] = "Page successfully deleted"
+    redirect_to user_path(current_user)
   end
 
 

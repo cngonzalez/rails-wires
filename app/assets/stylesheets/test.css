@@ -1,7 +1,5 @@
-p, h1, h2, h3 {
-  font: 1.8 Georgia, serif;
-  color: white;
-}
+p { font: 14px/1.8 Georgia, serif; }
+
 
 body {
   background-color: #263037;
@@ -9,6 +7,7 @@ body {
 
 h1, h2, h3 {
   text-align: center;
+  color: white;
 }
 
 form {
@@ -25,6 +24,10 @@ form input {
 
 .field input {
   color: black;
+}
+
+.error-messages, .alert, .notice {
+  background-color: white;
 }
 
 .clear {
@@ -121,9 +124,9 @@ form input {
 .splash {
   position: relative;
   min-height: 725px;
-  background-image: url('deep-sea-detail-depths.jpg');
-  background-size: cover;
-}
+  display:table-row;
+  height:0px;
+  }
 
 .splash-box {
   font-family: 'Orbitron', sans-serif;
@@ -162,4 +165,8 @@ form input {
 .comments {
   font-style: italic;
   font-size: 10px;
+}
+
+.test-page .row {
+  min-height: 400px;
 }

@@ -2,8 +2,23 @@ class Page < ApplicationRecord
   has_many :likes
   has_many :likers, through: :likes, source: :user
   has_many :elements
+  validates :elements, presence: true
+  validates :name, presence: true
+  validate :navbar
+  validate :unique_positions
+  before_destroy :delete_css, :delete_elements
 
-  #validates for validity -- nothing in position one, nothing in the same place, must have name
+  def navbar
+    if !(self.elements.where("position = 1 AND div < 1"))
+      errors.add(:elements, "Must have navbar in position 1")
+    end
+  end
+
+  def unique_positions
+    if self.elements.map(&:position).uniq.length < self.elements.length
+      errors.add(:elements, "Cannot have two elements in same position")
+    end
+  end
 
   def elements_attributes=(hash)
     hash.each do |k, v|
@@ -33,9 +48,8 @@ class Page < ApplicationRecord
   def body_elements(file)
     File.open(file, 'a') do |f|
       f.puts "body {"
-      f.puts "background: #{self.body_color};"
-      f.puts "}"
-      f.puts ".test-page {color: #{self.text_color}}"
+      f.puts "background: #{self.body_color};}"
+      f.puts "h3, p {color: #{self.text_color};}"
       f.puts " "
     end
   end
@@ -47,11 +61,19 @@ class Page < ApplicationRecord
     !(user.id == self.user_id)
   end
 
-  def destroy
-    super
+  def delete_css
     path = Dir.pwd + "/public/stylesheets/#{self.filepath}"
-    File.delete(path)
+    File.delete(path) if File.exist?(path)
   end
+
+  def delete_elements
+    Element.send(:destroy, Element.where(page_id: self.id).pluck(:id))
+  end
+
+  def rebuild
+    self.delete_elements
+    self.delete_css
+  end 
 
 
 

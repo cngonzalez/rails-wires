@@ -2,20 +2,18 @@
   <div id="like_box"><%= render like_box %></div>
 </div>
 
-
-
 <% make_rows(@page).each do |row| %>
 <div class="row test-page">
   <% row.each do |div| %>
   <div class="<%=div%>">
-    <div class="centering-container">
     <% if is_element?(div) %>
+    <div class="centering-container">
       <img src="<%= rando_image %> " alt="" />
+    </div>
     <% else %>
-      <h3><%= Faker::Lorem.sentence %> </h3>
+      <h3><%= Faker::Lorem.sentence %> </h3> <br>
       <p> <%= Faker::Lorem.paragraph(10) %> </p>
     <%end %>
-  </div>
   </div>
   <% end %>
 </div>

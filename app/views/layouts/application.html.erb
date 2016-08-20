@@ -15,11 +15,11 @@
   </head>
 
   <body>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
       <%= render choose_nav(@page) if choose_nav(@page) %>
-      <%= notice if notice %>
-      <%= alert if alert %>
+      <%= notify %>
+
       <%= yield %>
     </div>
     </div>

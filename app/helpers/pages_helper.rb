@@ -44,6 +44,12 @@ def header
   params[:action] == 'new' ? 'Create a page template' : 'Edit this page template'
 end
 
+def form_errors(page)
+  render('form_errors', page: page) unless page.errors.messages.empty?
+end
 
+def error_list(messages)
+  render('error_list', messages: messages.delete_if{|k, v| v.nil?}) unless messages.empty?
+end
 
 end

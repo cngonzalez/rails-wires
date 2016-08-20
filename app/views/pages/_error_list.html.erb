@@ -1,0 +1,7 @@
+
+<% messages.each do |field, alerts| %>
+<%= "#{field}:" %> <br>
+  <% alerts.each do |alert| %>
+  <%= alert %> <br>
+  <% end %>
+<%end %>
