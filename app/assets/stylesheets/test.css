@@ -201,3 +201,15 @@ border-color: grey;
   color: black;
   font-style: italic;
 }
+
+.nav-header {
+  border-style: solid;
+  border-width: 4px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px;
+  margin-bottom: 20px;
+}
