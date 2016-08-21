@@ -97,7 +97,7 @@ form input {
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   font-weight: bold;
-  width: 40%;
+  color: black;
   margin: auto;
   padding: 20px;
 }
@@ -115,6 +115,10 @@ form input {
   border-width: 4px;
   border-color: grey;
   padding: 7px;
+}
+
+#like_box label {
+  color: black;
 }
 
 .home-column {
@@ -169,4 +173,31 @@ form input {
 
 .test-page .row {
   min-height: 400px;
+}
+
+.comment-box {
+font-family: 'Open Sans', sans-serif;
+font-style: italic;
+font-size: 13px;
+width: 40%;
+margin: auto;
+padding: 20px;
+background-color: white;
+border-style: solid;
+border-width: 4px;
+border-color: grey;
+}
+
+.user-page-show {
+  background-color: white;
+  border-style: solid;
+  border-width: 4px;
+  border-color: grey;
+  margin: 10px;
+  max-width: 47%;
+}
+
+.user-page-show h3 {
+  color: black;
+  font-style: italic;
 }

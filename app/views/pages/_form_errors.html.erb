@@ -1,11 +1,11 @@
 <div class="error-messages background-color:white;">
   Invalid input in:
   <%page.errors.keys.each do |field| %>
-  <%= field %>
+  <%= field %> <br>
   <% end %>
   <br>
 
-  The following errors prevented page from being saved: <br>
+  The following errors prevented this page from being saved: <br>
 
   <%= error_list(page.errors.messages) %>
   <% if page.errors.messages[:elements] %>

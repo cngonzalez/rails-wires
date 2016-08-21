@@ -1,6 +1,4 @@
-<div class="row">
-  <div id="like_box"><%= render like_box %></div>
-</div>
+
 
 <% make_rows(@page).each do |row| %>
 <div class="row test-page">
@@ -18,3 +16,8 @@
   <% end %>
 </div>
 <% end %>
+
+
+<div class="row">
+  <div id="like_box"><h2> <%= render like_box %> </h2></div></div>
+</div>

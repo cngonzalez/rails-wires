@@ -4,17 +4,17 @@
 
 <div class="row">
 
-  <div class="col-sm-6 home-column">
+  <div class="col-sm-6 user-page-show">
     <h3>My pages</h3>
     <%= render partial: 'list_pages', locals: {pages: @user.pages} %>
   </div>
 
-<% unless @user == current_user %>
-  <div class="col-sm-6 home-column">
+<% if @user == current_user %>
+  <div class="col-sm-6 user-page-show">
     <h3>Liked pages</h3>
       <%= render partial: 'list_pages', locals: {pages: @user.liked_pages, user: @user} %>
   </div>
-<% end %> 
+<% end %>
 
 
 </div>

@@ -2,8 +2,7 @@ class Page < ApplicationRecord
   has_many :likes
   has_many :likers, through: :likes, source: :user
   has_many :elements
-  validates :elements, presence: true
-  validates :name, presence: true
+  validates :name, :accent_color, :elements, presence: true
   validate :navbar
   validate :unique_positions
   before_destroy :delete_css, :delete_elements
@@ -73,7 +72,7 @@ class Page < ApplicationRecord
   def rebuild
     self.delete_elements
     self.delete_css
-  end 
+  end
 
 
 
