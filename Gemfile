@@ -33,6 +33,8 @@ gem 'devise'
 gem 'faker'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'jquery-minicolors-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

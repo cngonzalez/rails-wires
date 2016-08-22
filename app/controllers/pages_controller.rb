@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  #validate before new, create, delete
+  before_action :require_login
 
   def new
     @page = Page.new
@@ -29,7 +29,11 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
-    redirect_to page_path(@page) if @page.not_authorized(current_user)
+    @page.more_elements
+    if @page.not_authorized?(current_user)
+      flash[:alert] = "You're not authorized to edit this page."
+      redirect_to page_path(@page) if @page.not_authorized(current_user)
+    end
   end
 
   def update
@@ -54,6 +58,14 @@ class PagesController < ApplicationController
     page.destroy
     flash[:notice] = "Page successfully deleted"
     redirect_to user_path(current_user)
+  end
+
+  private
+  def require_login
+    unless current_user
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_session_path
+    end
   end
 
 

@@ -1,0 +1,12 @@
+.navbar-collapse {
+overflow: hidden;
+max-height: 350px;
+border-radius: 3px;
+border: solid white 3px;
+background-color: white;
+}
+
+body {
+background: green;}
+h3, p {color: white;}
+ 

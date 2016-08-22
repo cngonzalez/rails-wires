@@ -6,6 +6,7 @@ class Page < ApplicationRecord
   validate :navbar
   validate :unique_positions
   before_destroy :delete_css, :delete_elements
+  scope :black, -> {where(body_color: 'black') }
 
   def navbar
     if !(self.elements.where("position = 1 AND div < 1"))
@@ -53,11 +54,8 @@ class Page < ApplicationRecord
     end
   end
 
-  def not_authorized(user)
-     if !(user.id == self.user_id)
-      flash[:alert] = "You're not authorized to edit this page."
-    end
-    !(user.id == self.user_id)
+  def not_authorized?(user)
+     !(user.id == self.user_id)
   end
 
   def delete_css
@@ -74,7 +72,10 @@ class Page < ApplicationRecord
     self.delete_css
   end
 
-
+  def more_elements
+    to_build = 3 - self.elements.count
+    to_build.times{self.elements.build(div: 4)}
+  end
 
 
 end

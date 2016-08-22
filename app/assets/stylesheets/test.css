@@ -57,6 +57,10 @@ form input {
   padding-left: 30px;
 }
 
+.form-div h3 {
+  color: white;
+}
+
 .navbar li {
   padding: 5px;
   height: 150px;
@@ -125,13 +129,6 @@ form input {
   padding: 20px;
 }
 
-.splash {
-  position: relative;
-  min-height: 725px;
-  display:table-row;
-  height:0px;
-  }
-
 .splash-box {
   font-family: 'Orbitron', sans-serif;
   font-size: 15px;
@@ -194,10 +191,10 @@ border-color: grey;
   border-width: 4px;
   border-color: grey;
   margin: 10px;
-  max-width: 47%;
+  max-width: 45%;
 }
 
-.user-page-show h3 {
+.user-page-show h2, h3 {
   color: black;
   font-style: italic;
 }
@@ -212,4 +209,8 @@ border-color: grey;
   font-family: 'Open Sans', sans-serif;
   padding: 5px;
   margin-bottom: 20px;
+}
+
+.splash {
+  min-height: 600px;
 }

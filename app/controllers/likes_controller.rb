@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
 
   def index
+    @like = Like.new
     @page = Page.find(params[:page_id])
     @likes = Like.where(page_id: params[:page_id])
     render 'pages/likes/index'

@@ -5,24 +5,24 @@
     </div>
 <div class="row">
 <%= form_for @page do |f| %>
-<%= f.label :name %> <br>
-<%= f.text_field :name %> <br>
-<h3>Colors</h3>
-<%= f.label 'Body color of page' %> <br>
-<%= f.text_field :body_color %> <br>
-<%= f.label 'Text color' %> <br>
-<%= f.text_field :text_color %> <br>
-<%= f.label 'Accent color' %> <br>
-<%= f.text_field :accent_color %> <br>
-<h3>Include elements:</h3><br>
-<%= f.fields_for :elements do |el| %>
-<%= el.label 'Type of element' %>:
-<%= el.select(:div, Element.div_types)%> <br>
-<%= el.label :size %>:
-<%= el.select(:size, Element.sizes) %> <br>
-<%= el.label 'Position (choose a box)' %>:
-<%= el.select(:position, Element.positions) %> <br>
-<br>
+  <%= f.label :name %> <br>
+  <%= f.text_field :name %> <br>
+  <h3>Colors</h3>
+    <%= f.label 'Body color of page' %> <br>
+    <%= f.text_field :body_color %> <br>
+    <%= f.label 'Text color' %> <br>
+    <%= f.text_field :text_color %> <br>
+    <%= f.label 'Accent color' %> <br>
+    <%= f.text_field :accent_color %> <br>
+  <h3>Include elements:</h3><br>
+    <%= f.fields_for :elements do |el| %>
+      <%= el.label 'Type of element' %>:
+      <%= el.select(:div, Element.div_types)%> <br>
+      <%= el.label :size %>:
+      <%= el.select(:size, Element.sizes) %> <br>
+      <%= el.label 'Position (choose a box)' %>:
+      <%= el.select(:position, Element.positions) %> <br>
+  <br>
 <% end %>
 <%= f.submit %>
 <% end %>

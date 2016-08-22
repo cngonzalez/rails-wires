@@ -1,0 +1,25 @@
+.navbar-collapse {
+overflow: hidden;
+max-height: 350px;
+border-radius: 3px;
+border: solid pink 3px;
+background-color: pink;
+}
+
+.circle-134 {
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 50%;
+border: solid pink 3px;
+background-color: pink;
+}
+
+.circle-134 img {opacity: 0.75;
+object-fit: cover;
+}
+
+body {
+background: black;}
+h3, p {color: white;}
+ 

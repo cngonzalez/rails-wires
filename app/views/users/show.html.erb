@@ -3,16 +3,18 @@
 </div>
 
 <div class="row">
-
   <div class="col-sm-6 user-page-show">
-    <h3>My pages</h3>
-    <%= render partial: 'list_pages', locals: {pages: @user.pages} %>
-  </div>
+    <h2>Created pages</h2>
+    <% @user.pages.each do |page| %>
+    <h3><%= link_to page.name, page_path(page) %></h3>
+    <% end %>
+</div>
+
 
 <% if @user == current_user %>
   <div class="col-sm-6 user-page-show">
-    <h3>Liked pages</h3>
-      <%= render partial: 'list_pages', locals: {pages: @user.liked_pages, user: @user} %>
+    <h2>Liked pages</h2>
+      <%= render partial: 'likes', locals: {liked_pages: @user.liked_pages.uniq, user: @user} %>
   </div>
 <% end %>
 

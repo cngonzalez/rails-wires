@@ -1,12 +1,11 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
-    byebug
     @user = User.from_omniauth(request.env["omniauth.auth"])
-
+    #hash that omniauth itself creates, retrieved from Facebook
     if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication 
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+      sign_in_and_redirect @user
+      set_flash_message(:notice, :success, :kind => "Facebook")
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url

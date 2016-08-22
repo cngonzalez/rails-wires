@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :likes
   end
   resources :users
-
+  
   root to: "application#index"
 
 end

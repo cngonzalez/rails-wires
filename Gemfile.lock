@@ -71,6 +71,9 @@ GEM
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jquery-minicolors-rails (2.2.3.0)
+      jquery-rails
+      rails (>= 3.2.8)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -194,6 +197,7 @@ DEPENDENCIES
   devise
   faker
   jbuilder (~> 2.5)
+  jquery-minicolors-rails
   jquery-rails
   listen (~> 3.0.5)
   omniauth

@@ -1,0 +1,8 @@
+  <% liked_pages.each do |page| %>
+  <b> <%= link_to page.name, page_path(page) %> </b> <br>
+  <ul>
+  <% page.likes.where(user_id: @user.id).each do |like| %>
+<li><%= like.comment %></li>
+  <% end %>
+  </ul>
+  <% end %>
