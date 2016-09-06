@@ -54,7 +54,7 @@ class PagesController < ApplicationController
 
   def destroy
     page = Page.find(params[:id])
-    redirect_to pages_path if page.not_authorized(current_user)
+    redirect_to pages_path if page.not_authorized?(current_user)
     page.destroy
     flash[:notice] = "Page successfully deleted"
     redirect_to user_path(current_user)
