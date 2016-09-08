@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("#like_input").on('submit', function(e){
+  $("#like_input :submit").on('click', function(e){
     e.preventDefault();
     postLike();
   });
@@ -7,6 +7,6 @@ $(document).ready(function(){
 
 function postLike() {
   $.post('likes', $('form').serializeArray()).done(function(data){
-    debugger;
+    $("#like_container").prepend('<div class="comment-box"><b>Comment by user: </b>' + data['user']['email'] + '<br><p>' + data['comment'] + '</p> <br> </div>')
   });
 }
