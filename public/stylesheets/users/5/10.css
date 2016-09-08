@@ -1,0 +1,38 @@
+.element-sidebar {
+overflow: hidden;
+max-width: 500px;
+border-radius: 3px;
+border: solid yellow 3px;
+background-color: yellow;
+}
+
+.circle-139 {
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 50%;
+border: solid yellow 3px;
+background-color: yellow;
+}
+
+.circle-139 img {opacity: 0.75;
+object-fit: cover;
+}
+
+.circle-140 {
+overflow: hidden;
+max-width: 650px;
+max-height: 650px;
+border-radius: 50%;
+border: solid yellow 3px;
+background-color: yellow;
+}
+
+.circle-140 img {opacity: 0.75;
+object-fit: cover;
+}
+
+body {
+background: black;}
+h3, p {color: white;}
+ 

@@ -1,0 +1,28 @@
+
+
+<% make_rows(@page).each do |row| %>
+<div class="row test-page">
+  <% row.each do |div| %>
+  <div class="<%=div%>">
+    <% if is_element?(div) %>
+    <div class="centering-container">
+      <img src="<%= rando_image %> " alt="" />
+    </div>
+    <% else %>
+      <h3><%= Faker::Lorem.sentence %> </h3> <br>
+      <p> <%= Faker::Lorem.paragraph(10) %> </p>
+    <%end %>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+
+<div class="row">
+  <div id="like_box"><h2> <%= render like_box %> </h2><br>
+    This page brought to you by <%= link_to User.find(@page.user_id).email, user_path(User.find(@page.user_id)) %>
+  </div></div>
+
+</div>
+
+fun

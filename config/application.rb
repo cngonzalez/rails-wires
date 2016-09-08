@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 
 module RailsWires
   class Application < Rails::Application
-    config.assets.enabled = false
+    config.assets.enabled = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -17,7 +17,7 @@ module RailsWires
 
 
 config.generators do |g|
-  g.assets false
+  g.assets true
 end
   end
 end

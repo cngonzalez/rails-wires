@@ -1,4 +1,4 @@
-<div id="like_box">
+<div id="like_input">
   <%= form_for [@page, Like.new] do |f| %>
   <%= f.hidden_field :page_id, value: @page.id %>
   <%= f.hidden_field :user_id, value: current_user.id %>

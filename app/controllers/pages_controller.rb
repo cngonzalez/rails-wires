@@ -19,7 +19,11 @@ class PagesController < ApplicationController
   end
 
   def index
+  end
+
+  def all
     @pages = Page.all
+    render json: @pages.to_json(:include => :user), status: 200
   end
 
   def show
@@ -63,7 +67,7 @@ class PagesController < ApplicationController
   private
   def require_login
     unless current_user
-      flash[:error] = "You must be logged in to access this section"
+      flash[:error] = "You must be logged in to access this section."
       redirect_to new_user_session_path
     end
   end
