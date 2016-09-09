@@ -21,6 +21,11 @@ class PagesController < ApplicationController
   def index
   end
 
+  def test
+    @page = Page.find(11)
+    render 'show'
+  end
+
   def all
     @pages = Page.all
     render json: @pages.to_json(:include => :user), status: 200
@@ -28,7 +33,13 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:id])
-    @page.build_css
+    respond_to do |format|
+      format.html{
+        @page.build_css
+        render :show
+      }
+      format.json {render json: @page.to_json(:include => :elements), status: 200}
+    end
   end
 
   def edit
@@ -50,12 +61,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def page_params
-    par = params.require(:page).permit(:body_color, :text_color, :accent_color, :name, elements_attributes: [:div, :position, :size])
-    par[:elements_attributes].select!{|k, v| v[:div] != 4.to_s}
-    par
-  end
-
   def destroy
     page = Page.find(params[:id])
     redirect_to pages_path if page.not_authorized(current_user)
@@ -70,6 +75,12 @@ class PagesController < ApplicationController
       flash[:error] = "You must be logged in to access this section."
       redirect_to new_user_session_path
     end
+  end
+
+  def page_params
+    par = params.require(:page).permit(:body_color, :text_color, :accent_color, :name, elements_attributes: [:div, :position, :size])
+    par[:elements_attributes].select!{|k, v| v[:div] != 4.to_s}
+    par
   end
 
 

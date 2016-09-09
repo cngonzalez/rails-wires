@@ -50,7 +50,7 @@ class Page < ApplicationRecord
     File.open(file, 'a') do |f|
       f.puts "body {"
       f.puts "background: #{self.body_color};}"
-      f.puts "h3, p {color: #{self.text_color};}"
+      f.puts "h3, p, label {color: #{self.text_color};}"
       f.puts " "
     end
   end

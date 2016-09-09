@@ -6,6 +6,7 @@ Rails.application.config.assets.precompile += %w( test.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( index.js )
 Rails.application.config.assets.precompile += %w( likes.js )
+Rails.application.config.assets.precompile += %w( pageshow.js )
 
 
 # Add additional assets to the asset load path
