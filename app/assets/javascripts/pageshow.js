@@ -1,10 +1,11 @@
 var pageElements = [];
+var formId = 0;
 
 function Element(hash) {
   this.color = hash['color'];
   this.size = hash['size'];
   this.position = hash['position'];
-  this.id = hash['id']
+  this.id = hash['id'];
   var self = this;
   className = divChooser(hash['div'], hash['id']);
   this.onPage = document.getElementsByClassName(className)[0];
@@ -20,27 +21,54 @@ Element.prototype.formFill = function() {
   $("input#id").val(this.id);
 }
 
+Element.prototype.changeElement = function() {
+  this.onPage.style.backgroundColor = $("input#color").val();
+  this.onPage.style.borderColor = $("input#color").val();
+  this.sizeChanger($("input#size").val());
+}
+
+Element.prototype.sizeChanger = function(num) {
+  switch(num){
+    case "1":
+    this.onPage.style.maxWidth = "400px";
+    this.onPage.style.maxHeight = "400px";
+    break;
+    case "2":
+    this.onPage.style.maxWidth = "500px";
+    this.onPage.style.maxHeight = "500px";
+    break;
+    case "3":
+    this.onPage.style.maxWidth = "650px";
+    this.onPage.style.maxHeight = "650px";
+    break;
+  }
+}
+
 function populateElements() {
   pageNumber = window.location.href.split("/pages/")[1];
   $.get('/pages/' + pageNumber + '.json').done(function(data) {
-    jsElements = data['elements'].map(function(el){
+    pageElements = data['elements'].map(function(el){
       element = new Element(el);
-      pageElements.push(element);
       return element;
     });
   });
 }
 
-function changeElement(event) {
-  debugger;
+function findElement(event) {
+  formId = parseInt($('#changer [name="id"]').val());
+  el = pageElements.find(idGet);
+  el.changeElement();
+}
+
+function idGet(element){
+  return element.id === formId;
 }
 
 $(document).ready(function() {
   populateElements();
-  $('input[type=button][value="Apply changes"]').on('click', function(e) {
-    debugger;
+  $('#changer :submit').on('click', function(e) {
     e.preventDefault();
-    changeElement(e);
+    findElement(e);
   });
 });
 
