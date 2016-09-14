@@ -1,5 +1,3 @@
-<%= render 'element', page: @page %>
-<%= render 'display', page: @page %>
-<%= javascript_include_tag 'elements' %>
-<%= javascript_include_tag 'pageshow' %>
-*** REVERT VIA GITHUB ***
+<%= form_errors(@page) %>
+<%= render 'grid' %>
+<%= render 'form' %>
