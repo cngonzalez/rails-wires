@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def choose_nav(page)
-    if page && params[:action] == "show"
+    if page && (params[:action] == "show" || params[:action] == "edit")
       page.elements.where(div: 0).empty? ?  'top_nav' : 'sidebar'
     else 'top_nav'
     end

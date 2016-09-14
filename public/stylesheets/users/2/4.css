@@ -1,12 +1,12 @@
-.element-sidebar {
+.navbar-collapse {
 overflow: hidden;
-max-width: 400px;
+max-height: 350px;
 border-radius: 3px;
 border: solid purple 3px;
 background-color: purple;
 }
 
-.circle-142 {
+.circle-148 {
 overflow: hidden;
 max-width: 650px;
 max-height: 650px;
@@ -15,11 +15,11 @@ border: solid purple 3px;
 background-color: purple;
 }
 
-.circle-142 img {opacity: 0.75;
+.circle-148 img {opacity: 0.75;
 object-fit: cover;
 }
 
-.circle-143 {
+.circle-149 {
 overflow: hidden;
 max-width: 500px;
 max-height: 500px;
@@ -28,7 +28,7 @@ border: solid purple 3px;
 background-color: purple;
 }
 
-.circle-143 img {opacity: 0.75;
+.circle-149 img {opacity: 0.75;
 object-fit: cover;
 }
 

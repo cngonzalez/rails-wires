@@ -34,5 +34,5 @@ object-fit: cover;
 
 body {
 background: grey;}
-h3, p {color: white;}
+h3, p, label {color: white;}
  
