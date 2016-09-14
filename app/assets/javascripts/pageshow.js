@@ -11,41 +11,38 @@ function populateElements() {
   });
 }
 
-function findElement(event) {
+function getElement() {
   formId = parseInt($('#changer [name="id"]').val());
   el = pageElements.find(idGet);
-  el.changeElement();
-  $('#changer :submit').val('Save these changes');
+  return el;
 }
 
 function idGet(element){
   return element.id === formId;
 }
 
+function applyChanges() {
+  el = getElement();
+  el.changeElement();
+  $('#changer :submit').val('Save these changes');
+}
+
+
+function applyOrSave(){
+  if ($("#changer :submit").val() === "Apply changes") {
+    applyChanges();
+  }
+  else if ($("#changer :submit").val() === "Save these changes") {
+    el = getElement();
+    el.updateElement();
+  }
+}
+
+
 $(document).ready(function() {
   populateElements();
   $('#changer :submit').on('click', function(e) {
     e.preventDefault();
-    if statemenet goes here
-    findElement(e);
+    applyOrSave();
   });
 });
-
-
-function divChooser(div, num){
-  switch(div){
-    case 0:
-    text = '.element-sidebar';
-    break;
-    case 1:
-    text = '.navbar-collapse';
-    break;
-    case 2:
-    text = '.circle-' + num;
-    break;
-    case 3:
-    text = '.rectangle-' + num;
-    break;
-    }
-  return text;
-}

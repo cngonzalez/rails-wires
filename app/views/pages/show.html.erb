@@ -1,3 +1,7 @@
+<% if !@page.not_authorized?(current_user) %>
+<%= render 'element', page: @page %>
+<% end %>
+
 <% make_rows(@page).each do |row| %>
 <div class="row test-page">
   <% row.each do |div| %>

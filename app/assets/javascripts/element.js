@@ -20,14 +20,13 @@ Element.prototype.formFill = function() {
 }
 
 Element.prototype.changeElement = function() {
-  this.updateElement();
   this.onPage.style.backgroundColor = $("input#color").val();
   this.onPage.style.borderColor = $("input#color").val();
   this.sizeChanger($("input#size").val());
 }
 
 Element.prototype.updateElement = function() {
-
+  debugger;
 }
 
 Element.prototype.sizeChanger = function(num) {
@@ -45,4 +44,23 @@ Element.prototype.sizeChanger = function(num) {
     this.onPage.style.maxHeight = "650px";
     break;
   }
+}
+
+
+function divChooser(div, num){
+  switch(div){
+    case 0:
+    text = '.element-sidebar';
+    break;
+    case 1:
+    text = '.navbar-collapse';
+    break;
+    case 2:
+    text = '.circle-' + num;
+    break;
+    case 3:
+    text = '.rectangle-' + num;
+    break;
+    }
+  return text;
 }
