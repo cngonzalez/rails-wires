@@ -10,8 +10,8 @@ class LikesController < ApplicationController
   def create
     like = Like.new(like_params)
     if like.save
-      notice = "Successfully saved"
-      redirect_to page_likes_path(like.page_id)
+      # notice = "Successfully commented"
+      render json: like.to_json(:include => :user), status: 201
     end
   end
 

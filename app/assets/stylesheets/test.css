@@ -214,3 +214,12 @@ border-color: grey;
 .splash {
   min-height: 600px;
 }
+
+.index-box {
+  background-color: white;
+  border-style: solid;
+  border-width: 4px;
+  border-color: grey;
+  max-width: 30%;
+  margin: 0 auto;
+}

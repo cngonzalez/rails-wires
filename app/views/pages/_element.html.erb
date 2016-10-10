@@ -1,0 +1,13 @@
+<div id="changer">
+  <h3>Click an element to change its attributes</h3>
+  <%= form_tag("/pages/#{page.id}/elements") do %>
+  <%= label_tag 'color' %>
+  <%= text_field_tag 'color' %> <br>
+  <%= label_tag 'size' %>
+  <%= text_field_tag 'size' %> <br>
+    <%= hidden_field_tag 'id' %>
+  <%= submit_tag 'Apply changes' %>
+  <%= submit_tag 'Save these changes' %>
+  <% end %>
+
+</div>

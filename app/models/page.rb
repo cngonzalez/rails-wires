@@ -1,4 +1,5 @@
 class Page < ApplicationRecord
+  belongs_to :user
   has_many :likes
   has_many :likers, through: :likes, source: :user
   has_many :elements
@@ -49,7 +50,7 @@ class Page < ApplicationRecord
     File.open(file, 'a') do |f|
       f.puts "body {"
       f.puts "background: #{self.body_color};}"
-      f.puts "h3, p {color: #{self.text_color};}"
+      f.puts "h3, p, label {color: #{self.text_color};}"
       f.puts " "
     end
   end
@@ -65,6 +66,7 @@ class Page < ApplicationRecord
 
   def delete_elements
     Element.send(:destroy, Element.where(page_id: self.id).pluck(:id))
+    Like.send(:destroy, Like.where(page_id: self.id).pluck(:id))
   end
 
   def rebuild

@@ -1,4 +1,6 @@
-
+<% if !@page.not_authorized?(current_user) %>
+<%= render 'element', page: @page %>
+<% end %>
 
 <% make_rows(@page).each do |row| %>
 <div class="row test-page">
@@ -20,7 +22,7 @@
 
 <div class="row">
   <div id="like_box"><h2> <%= render like_box %> </h2><br>
-    This page brought to you by <%= link_to User.find(@page.user_id).email, user_path(User.find(@page.user_id)) %> 
+    This page brought to you by <%= link_to User.find(@page.user_id).email, user_path(User.find(@page.user_id)) %>
   </div></div>
 
 </div>
