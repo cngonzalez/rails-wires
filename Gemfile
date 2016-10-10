@@ -34,6 +34,7 @@ gem 'faker'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jquery-minicolors-rails'
+gem 'dotenv'
 
 
 group :development, :test do

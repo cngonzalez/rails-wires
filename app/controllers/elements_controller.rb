@@ -6,7 +6,7 @@ class ElementsController < ApplicationController
       render plain: 'Changes saved'
     else
       render plain: 'There was an error'
-    end 
+    end
   end
 
 

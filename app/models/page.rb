@@ -66,6 +66,7 @@ class Page < ApplicationRecord
 
   def delete_elements
     Element.send(:destroy, Element.where(page_id: self.id).pluck(:id))
+    Like.send(:destroy, Like.where(page_id: self.id).pluck(:id))
   end
 
   def rebuild

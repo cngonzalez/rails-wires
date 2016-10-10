@@ -2,8 +2,7 @@ var pageElements = [];
 var formId = 0;
 
 function populateElements() {
-  pageNumber = window.location.href.split("/pages/")[1];
-  $.get('/pages/' + pageNumber + '.json').done(function(data) {
+  $.get('/pages/' + window.location.href.split("/pages/")[1] + '.json').done(function(data) {
     pageElements = data['elements'].map(function(el){
       element = new Element(el);
       return element;
@@ -20,29 +19,25 @@ function getElement() {
 function idGet(element){
   return element.id === formId;
 }
-
-function applyChanges() {
-  el = getElement();
+//addding page/text color funct - if stateemnet for page vs text
+function applyChanges(el) {
   el.changeElement();
-  $('#changer :submit').val('Save these changes');
 }
 
-
-function applyOrSave(){
-  if ($("#changer :submit").val() === "Apply changes") {
-    applyChanges();
+function applyOrSave(e){
+  el = getElement();
+  if ($(e.target).val() === "Apply changes") {
+    applyChanges(el);
   }
-  else if ($("#changer :submit").val() === "Save these changes") {
-    el = getElement();
+  else if ($(e.target).val() === "Save these changes") {
     el.updateElement();
   }
 }
-
 
 $(document).ready(function() {
   populateElements();
   $('#changer :submit').on('click', function(e) {
     e.preventDefault();
-    applyOrSave();
+    applyOrSave(e);
   });
 });

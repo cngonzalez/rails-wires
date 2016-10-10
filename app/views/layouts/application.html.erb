@@ -18,7 +18,9 @@
     <div class="container">
       <div class="row">
       <%= render choose_nav(@page) if choose_nav(@page) %>
-      <%= notify %>
+      <div id="flash">
+        <%= notify %>
+      </div>
 
       <%= yield %>
     </div>

@@ -6,7 +6,20 @@ border: solid pink 3px;
 background-color: pink;
 }
 
-.circle-134 {
+.circle-160 {
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 50%;
+border: solid blue 3px;
+background-color: blue;
+}
+
+.circle-160 img {opacity: 0.75;
+object-fit: cover;
+}
+
+.circle-161 {
 overflow: hidden;
 max-width: 400px;
 max-height: 350px;
@@ -15,7 +28,7 @@ border: solid pink 3px;
 background-color: pink;
 }
 
-.circle-134 img {opacity: 0.75;
+.circle-161 img {opacity: 0.75;
 object-fit: cover;
 }
 

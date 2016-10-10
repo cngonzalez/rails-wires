@@ -14,7 +14,6 @@ function Element(hash) {
 
 Element.prototype.formFill = function() {
   $("input#color").val(this.color);
-  $("input#position").val(this.position);
   $("input#size").val(this.size);
   $("input#id").val(this.id);
 }
@@ -26,7 +25,16 @@ Element.prototype.changeElement = function() {
 }
 
 Element.prototype.updateElement = function() {
-  debugger;
+  pageNumber = window.location.href.split("/pages/")[1];
+  data = {'element': {
+    'color': $("input#color").val(),
+    'size': $("input#size").val()
+  }}
+  $.ajax({
+    url: "/pages/" + pageNumber + "/elements/" + this.id,
+    type: 'PATCH',
+    data: data
+  });
 }
 
 Element.prototype.sizeChanger = function(num) {
@@ -45,7 +53,6 @@ Element.prototype.sizeChanger = function(num) {
     break;
   }
 }
-
 
 function divChooser(div, num){
   switch(div){
