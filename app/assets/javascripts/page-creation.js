@@ -21,7 +21,11 @@ $(document).ready(function() {
     }
   })
   $("#colorpicker-3").spectrum({
-    color: "white"
+    color: "white",
+    move: function(tinycolor) {
+      var color = tinycolor.toHexString()
+      $('#create-table').css('color', color)
+    }
   })
   $(".cell-contents").on('click', function(e) {
     toggleShape(e)
