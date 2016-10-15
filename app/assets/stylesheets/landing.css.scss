@@ -6,6 +6,38 @@ html {
      background-size: cover;
   }
 
+body {
+  font-family: 'Space Mono', monospace;
+//   font-size: 15px;
+  color: white;
+}
+
+.splash-box {
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  margin: auto;
+  padding: 20px;
+  z-index: 2;
+  text-align: center;
+  border: 7px dotted white;
+}
+
+.splash-box h1 {
+  font-size: 65px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.splash-box h2 {
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.center-splash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 
 
