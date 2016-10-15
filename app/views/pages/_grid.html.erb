@@ -1,10 +1,11 @@
-<div class="row">
-  <div class="col-sm-6">
-<div id="grid">
-<% 9.times do |i| %>
-    <div class="grid-element">
-      <h1><%= "#{i+1}" %> </h1>
-  </div>
-  <% end %>
-</div>
-</div> 
+<table id='create-table'> 
+  <% 3.times do |i| %>
+    <tr>
+      <% 3.times do |j| %>
+        <% cell_num = (3 * i + j + 1).to_s %> 
+        <td class="create-cell" class="cell-<%=cell_num %>">
+          <div class="cell-contents"><%=cell_num%></div></td>
+      <% end %>
+    </tr>
+  <%end %> 
+</table>

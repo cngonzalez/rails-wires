@@ -39,5 +39,15 @@ body {
   transform: translate(-50%, -50%);
 }
 
+#create-table table, th, td{
+  background-color: grey;
+  border: 3px dotted white;
+}
 
+.create-cell {
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  font-size: 30px;
+}
 

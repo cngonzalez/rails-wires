@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :require_login
+  layout 'splash', only: [:new]
 
   def new
     @page = Page.new
