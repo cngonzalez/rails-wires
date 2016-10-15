@@ -3,8 +3,8 @@
     <tr>
       <% 3.times do |j| %>
         <% cell_num = (3 * i + j + 1).to_s %> 
-        <td class="create-cell" class="cell-<%=cell_num %>">
-          <div class="cell-contents"><%=cell_num%></div></td>
+        <td class="create-cell">
+          <div class="cell-contents" id='cell-<%=cell_num%>'><%=cell_num%></div></td>
       <% end %>
     </tr>
   <%end %> 

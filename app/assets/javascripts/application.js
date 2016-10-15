@@ -17,3 +17,4 @@
 //= require likes
 //= require pageshow
 //= require elements
+//= require page-creation
