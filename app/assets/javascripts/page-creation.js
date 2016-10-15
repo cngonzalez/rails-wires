@@ -33,15 +33,20 @@ function getActiveElements() {
 
 function toggleShape(event) {
   var div = event.target
-  // debugger;
   if (div.style.border == "") { 
     div.style.border = '2px solid black'
     div.style.borderRadius = '50%'
+    div.style.backgroundColor = $('#colorpicker-1').spectrum('get').toHexString()
   }
   else if (div.style.borderRadius == '50%') {
     div.style.borderRadius = ""
+    div.style.backgroundColor = $('#colorpicker-1').spectrum('get').toHexString()
   }
-  else {div.style.border = ""}
+  else {
+    div.style.border = ""
+    var table = $('#create-table')
+    div.style.backgroundColor = $('#colorpicker-2').spectrum('get').toHexString()
+  }
 }
 
 
