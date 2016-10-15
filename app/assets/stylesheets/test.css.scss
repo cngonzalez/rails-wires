@@ -133,31 +133,8 @@ form input {
   font-family: 'Orbitron', sans-serif;
   font-size: 15px;
   color: white;
-  margin: auto;
-  padding: 20px;
-  width: 400px;
-  height: 250px;
-  z-index: 2;
-  text-align: center;
 }
 
-.splash-box h1 {
-  font-size: 65px;
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 2px;
-}
-
-.splash-box h2 {
-  font-size: 40px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.center-splash {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .test-page {
   padding: 30px;
