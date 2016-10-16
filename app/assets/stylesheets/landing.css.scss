@@ -48,6 +48,9 @@ body {
   background-color: grey;
   height: 150px;
   width: 150px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 150px; 
 }
 
 .create-cell {
@@ -57,3 +60,6 @@ body {
   font-size: 30px;
 }
 
+#invisible-form {
+  display: none;
+}

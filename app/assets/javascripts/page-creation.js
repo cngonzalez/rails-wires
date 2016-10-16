@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $("#colorpicker-1").spectrum({
     color: "grey",
+    showInput: true,
     move: function(tinycolor) {
       var els = getActiveElements()
       var color = tinycolor.toHexString()
@@ -9,6 +10,7 @@ $(document).ready(function() {
   });
   $("#colorpicker-2").spectrum({
     color: "grey",
+    showInput: true,
     move: function(tinycolor) {
       var els = getInactiveElements()
       var color = tinycolor.toHexString()
@@ -22,6 +24,7 @@ $(document).ready(function() {
   })
   $("#colorpicker-3").spectrum({
     color: "white",
+    showInput: true,
     move: function(tinycolor) {
       var color = tinycolor.toHexString()
       $('#create-table').css('color', color)
@@ -30,7 +33,56 @@ $(document).ready(function() {
   $(".cell-contents").on('click', function(e) {
     toggleShape(e)
   })
+  $('#submit-this').on('click', function(e) {
+    e.preventDefault();
+    postToPage();
+  })
 });
+
+
+function divType(id){
+  onPage = $(id)[0]
+  if (onPage.style.borderRadius == "50%") {
+    var response = "2"
+  }
+  else { 
+    var response = "3"
+  }
+  return response
+}
+function postToPage(){
+  var formElements = getActiveElements()
+  var elementHash = {}
+  for (var i = 0; i < formElements.length; i++) { 
+    var div = divType(formElements[i])
+    elementHash[i.toString()] = {
+      "div": div,
+      "size": "1",
+      "position": formElements[i].replace(/#cell-/, "")
+    }
+  }
+  elementHash["nav"] = {
+    "div": $("nav-select").val(),
+    "size": "1",
+    "position": "1"
+  }
+  var data = {"page": {
+    "name": $('input#page-name').val(),
+    "body_color": $('#colorpicker-2').spectrum('get').toHexString(),
+    "text_color": $('#colorpicker-3').spectrum('get').toHexString(),
+    "accent_color": $('#colorpicker-1').spectrum('get').toHexString(),
+    "elements_attributes": elementHash
+  }}
+
+  $.ajax({
+    url: '/pages',
+    type: 'POST',
+    data: data
+  }).done(function(response) {
+    console.log(response)
+  })
+
+}
 
 function changeElementsColor(els, color) {
   for (var i = 0; i <  els.length; i++) {
@@ -74,5 +126,4 @@ function toggleShape(event) {
     div.style.backgroundColor = $('#colorpicker-2').spectrum('get').toHexString()
   }
 }
-
 

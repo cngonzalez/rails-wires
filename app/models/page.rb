@@ -4,16 +4,9 @@ class Page < ApplicationRecord
   has_many :likers, through: :likes, source: :user
   has_many :elements
   validates :name, :accent_color, :elements, presence: true
-  validate :navbar
   validate :unique_positions
   before_destroy :delete_css, :delete_elements
   scope :black, -> {where(body_color: 'black') }
-
-  def navbar
-    if !(self.elements.where("position = 1 AND div < 1"))
-      errors.add(:elements, "Must have navbar in position 1")
-    end
-  end
 
   def unique_positions
     if self.elements.map(&:position).uniq.length < self.elements.length

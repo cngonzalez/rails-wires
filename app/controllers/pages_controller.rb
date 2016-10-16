@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end
 
   def create
+    byebug
     @page = Page.new(page_params)
     @page.user_id = current_user.id
     if @page.valid?
