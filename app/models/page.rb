@@ -43,8 +43,18 @@ class Page < ApplicationRecord
     File.open(file, 'a') do |f|
       f.puts "body {"
       f.puts "background: #{self.body_color};}"
-      f.puts "h3, p, label {color: #{self.text_color};}"
-      f.puts " "
+      f.puts "h3, p, label {color: #{self.text_color};"
+      f.puts "text-align: center;"
+      f.puts "}"
+      f.puts ""
+      f.puts "p {font: 14px/1.8 Georgia, serif; }"
+      f.puts "h1, h2, h3 {font: 30px/2.5 Open Sans, sans-serif; }" 
+      f.puts ".col-sm-4, .col-sm-8, .col-sm-12 {"
+      f.puts "position: relative;\nmin-height: 1px;\npadding-left: 15px;\npadding-right: 15px;}"
+      f.puts ".row:after {"
+      f.puts "clear:both;}"
+      f.puts ".row {"
+      f.puts "min-height: 400px;}"
     end
   end
 
@@ -72,5 +82,31 @@ class Page < ApplicationRecord
     to_build.times{self.elements.build(div: 4)}
   end
 
+  def make_rows
+    grid = []
+    9.times do |i|
+      element = self.get_element(i + 1)
+      if element && element.div > 1
+        grid.push("col-sm-4 #{element.div_type}")
+      else grid.push "col-sm-4"
+      end
+    end
+    row_1 = grid[0..2]
+    row_2 = grid[3..5]
+    row_3 = grid[6..8]
+    [row_1, row_2, row_3].map{|row| flatten_row(row)}
+  end
+
+
+  def flatten_row(row)
+    if row[0] == row[1] && row[0] == row[2]
+      ["col-sm-12"]
+    elsif row[0] ==row[1]
+      ["col-sm-8", row[2]]
+    elsif row[1] == row[2]
+      [row[0], "col-sm-8"]
+    else row
+    end
+  end
 
 end

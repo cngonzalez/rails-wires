@@ -14,8 +14,9 @@ class PagesController < ApplicationController
     @page.user_id = current_user.id
     if @page.valid?
       @page.save
-      redirect_to page_path(@page)
-    else render 'new'
+      render json: @page.to_json, status: 200
+    else 
+      render :json => { :errors => @page.errors.full_messages }, status: 422
     end
   end
 
@@ -41,6 +42,7 @@ class PagesController < ApplicationController
       }
       format.json {render json: @page.to_json(:include => :elements), status: 200}
     end
+    byebug
   end
 
   def edit
@@ -82,6 +84,17 @@ class PagesController < ApplicationController
     par = params.require(:page).permit(:body_color, :text_color, :accent_color, :name, elements_attributes: [:div, :position, :size])
     par[:elements_attributes].select!{|k, v| v[:div] != 4.to_s}
     par
+  end
+
+  def page_html(@page)
+    str = "<div class='row test-page'>"
+    @page.make_rows.each do |row|
+      row.each do |div|
+        str =+ "<div class=#{div}>"
+
+      end
+    end
+  end
   end
 
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'bootstrap.min.css' if (@page && (params[:action] == 'show' || params[:action] == 'edit')) %>
     <%= stylesheet_link_tag 'test.css' %>
     <%= stylesheet_link_tag @page.filepath if (@page && (params[:action] == 'show' || params[:action] == 'edit')) %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -17,7 +17,6 @@
   <body>
     <div class="container">
       <div class="row">
-      <%= render choose_nav(@page) if choose_nav(@page) %>
       <div id="flash">
         <%= notify %>
       </div>

@@ -1,3 +1,5 @@
+<%= render choose_nav(@page) if choose_nav(@page) %> 
+
 <% if !@page.not_authorized?(current_user) %>
 <%= render 'element', page: @page %>
 <% end %>
