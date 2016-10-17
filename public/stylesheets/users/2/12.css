@@ -1,6 +1,11 @@
-.navbar-collapse {
+nav {
 overflow: hidden;
 max-height: 350px;
+ margin: 0 0 0 0;
+ font-family: Arial;
+ font-size: 100%;
+ width: 100%;
+overflow: hidden;min-height: 100px;
 border-radius: 3px;
 border: solid yellow 3px;
 background-color: yellow;

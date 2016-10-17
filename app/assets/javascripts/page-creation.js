@@ -67,7 +67,7 @@ function postToPage(){
     })
   }
   elementArr.push({
-    "div": $("#nav-select").val(),
+    "div": "1",
     "size": "1",
     "position": "1"
   })

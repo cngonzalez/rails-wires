@@ -1,9 +1,9 @@
-<%= render choose_nav(@page) if choose_nav(@page) %> 
 
-<% if !@page.not_authorized?(current_user) %>
-<%= render 'element', page: @page %>
-<% end %>
+<%# <% if !@page.not_authorized?(current_user) %1> %>
+<%# <%= render 'element', page: @page %1> %>
+<%# <% end %1> %>
 
+<nav><h1><%=@page.name %></h1> </nav>
 <div id='page-contents'></div>
 
 <%# <% @page.make_rows.each do |row| %1> %>

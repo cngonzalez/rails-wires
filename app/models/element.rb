@@ -7,6 +7,7 @@ class Element < ApplicationRecord
       f.puts "overflow: hidden;"
       f.puts "max-width: #{write_width}" if self.div != 1
       f.puts "max-height: #{write_height}" if self.div != 0
+      f.puts nav_stats if self.div == 1
       f.puts self.border_radius
       f.puts "border: solid #{self.color} 3px;"
       f.puts "background-color: #{self.color};"
@@ -21,10 +22,13 @@ class Element < ApplicationRecord
     end
   end
 
+  def nav_stats
+    " margin: 0 0 0 0;\n font-family: Arial;\n font-size: 100%;\n width: 100%;\noverflow: hidden;\min-height: 100px;"
+  end
+
   def write_type
     hash = {
-      0 => '.element-sidebar {',
-      1 => '.navbar-collapse {',
+      1 => 'nav {',
       2 => ".circle-#{self.id} {",
       3 => ".rectangle-#{self.id} {"
     }
