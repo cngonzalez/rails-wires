@@ -30,14 +30,18 @@ $(document).ready(function() {
       $('#create-table').css('color', color)
     }
   })
+
   $(".cell-contents").on('click', function(e) {
     toggleShape(e)
   })
+
   $('#submit-this').on('click', function(e) {
     e.preventDefault();
     postToPage();
   })
+
 });
+
 
 
 function divType(id){
@@ -50,28 +54,29 @@ function divType(id){
   }
   return response
 }
+
 function postToPage(){
   var formElements = getActiveElements()
-  var elementHash = {}
+  var elementArr = []
   for (var i = 0; i < formElements.length; i++) { 
     var div = divType(formElements[i])
-    elementHash[i.toString()] = {
+    elementArr.push({
       "div": div,
       "size": "1",
       "position": formElements[i].replace(/#cell-/, "")
-    }
+    })
   }
-  elementHash["nav"] = {
-    "div": $("nav-select").val(),
+  elementArr.push({
+    "div": $("#nav-select").val(),
     "size": "1",
     "position": "1"
-  }
+  })
   var data = {"page": {
     "name": $('input#page-name').val(),
     "body_color": $('#colorpicker-2').spectrum('get').toHexString(),
     "text_color": $('#colorpicker-3').spectrum('get').toHexString(),
     "accent_color": $('#colorpicker-1').spectrum('get').toHexString(),
-    "elements_attributes": elementHash
+    "elements_attributes": elementArr
   }}
 
   $.ajax({
@@ -90,6 +95,7 @@ function changeElementsColor(els, color) {
     element.style.backgroundColor = color
   }
 }
+
 function getActiveElements() {
   var active = []
   $('.cell-contents').each(function(cell) {

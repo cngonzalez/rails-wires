@@ -1,37 +1,5 @@
 class Element < ApplicationRecord
   belongs_to :page
-  validate :navbar_position
-
-  def navbar_position
-    if self.div < 2 && self.position != "1"
-      byebug
-      errors.add(:position, "Navbar must be in position 1")
-    end
-  end
-
-  def self.div_types
-    hash = {
-      :'navigation bar - left side' => 0,
-      :'navigation bar - top' => 1,
-      :'image - circle' => 2,
-      :'image - rectangle' => 3,
-      :'none' => 4
-    }
-  end
-
-  def self.sizes
-    hash = {
-      :'small' => 1,
-      :'medium' => 2,
-      :'large' => 3
-    }
-  end
-
-  def self.positions
-    hash = {}
-    9.times{|i| hash[(i + 1).to_s] = i + 1}
-    hash
-  end
 
   def write_block(file)
     File.open(file, 'a') do |f|

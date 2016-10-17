@@ -1,0 +1,48 @@
+.rectangle-162 {
+overflow: hidden;
+max-width: 400px;
+max-height: 200px;
+border-radius: 3px;
+border: solid #808080 3px;
+background-color: #808080;
+}
+
+.rectangle-162 img {opacity: 0.75;
+object-fit: cover;
+}
+
+.circle-163 {
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 50%;
+border: solid #808080 3px;
+background-color: #808080;
+}
+
+.circle-163 img {opacity: 0.75;
+object-fit: cover;
+}
+
+.circle-164 {
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 50%;
+border: solid #808080 3px;
+background-color: #808080;
+}
+
+.circle-164 img {opacity: 0.75;
+object-fit: cover;
+}
+
+
+overflow: hidden;
+max-width: 400px;
+max-height: 350px;
+border-radius: 3px;
+border: solid #808080 3px;
+background-color: #808080;
+}
+
