@@ -42,7 +42,6 @@ class PagesController < ApplicationController
       }
       format.json {render json: @page.to_json(:include => :elements), status: 200}
     end
-    byebug
   end
 
   def edit
@@ -72,6 +71,29 @@ class PagesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+
+  def page_html
+    page = Page.find(params[:id])
+    str = ""
+    page.make_rows.each do |row|
+    str = str + "<div class='row test-page'>"
+      row.each do |div|
+        str = str + "<div class='#{div}'>"
+        if is_element?(div)
+          str = str + "<div class='centering-container'>"
+          str = str + "<img src=#{rando_image} />"
+          str = str = str + "</div>"
+        else 
+          str = str + "<h3>#{ Faker::Lorem.sentence }</h3><br>"
+          str = str + "<p>#{ Faker::Lorem.paragraph(10) }</p>"
+        end
+        str = str + "</div>"
+      end
+      str = str + "</div>"
+    end
+    render html: str.html_safe
+  end
+
   private
   def require_login
     unless current_user
@@ -86,16 +108,16 @@ class PagesController < ApplicationController
     par
   end
 
-  def page_html(@page)
-    str = "<div class='row test-page'>"
-    @page.make_rows.each do |row|
-      row.each do |div|
-        str =+ "<div class=#{div}>"
 
-      end
-    end
-  end
-  end
 
+def is_element?(div)
+  div.include?("circle") || div.include?("navbar") || div.include?("rectangle") || div.include?("sidebar")
+end
+
+
+def rando_image
+  pics = Dir.entries('public/pages/images').select{|filename| filename.length > 3 }
+  "images/#{pics.sample}"
+end
 
 end

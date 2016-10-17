@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/pages/all', to: 'pages#all'
   get '/pages/test', to: 'pages#test'
+  get 'pages/:id/page_html', to: 'pages#page_html'
 
   resources :pages do
     resources :likes

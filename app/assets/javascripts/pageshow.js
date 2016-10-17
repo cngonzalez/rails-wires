@@ -35,7 +35,11 @@ function applyOrSave(e){
 }
 
 $(document).ready(function() {
-  populateElements();
+  $.get('/pages/' + window.location.href.split("/pages/")[1] + '/page_html').done(function(data) {
+    $('#page-contents').html(data);
+  }).done(function() {
+    populateElements();
+  })
   $('#changer :submit').on('click', function(e) {
     e.preventDefault();
     applyOrSave(e);

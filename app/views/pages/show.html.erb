@@ -4,22 +4,24 @@
 <%= render 'element', page: @page %>
 <% end %>
 
-<% make_rows(@page).each do |row| %>
-<div class="row test-page">
-  <% row.each do |div| %>
-  <div class="<%=div%>">
-    <% if is_element?(div) %>
-    <div class="centering-container">
-      <img src="<%= rando_image %> " alt="" />
-    </div>
-    <% else %>
-      <h3><%= Faker::Lorem.sentence %> </h3> <br>
-      <p> <%= Faker::Lorem.paragraph(10) %> </p>
-    <%end %>
-  </div>
-  <% end %>
-</div>
-<% end %>
+<div id='page-contents'></div>
+
+<%# <% @page.make_rows.each do |row| %1> %>
+<%# <div class="row test-page"> %>
+<%#   <% row.each do |div| %1> %>
+<%#   <div class="<%=div%>"> %>
+<%#     <% if is_element?(div) %1> %>
+<%#     <div class="centering-container"> %>
+<%#       <img src="<%= rando_image %1> " alt="" /> %>
+<%#     </div> %>
+<%#     <% else %1> %>
+<%#       <h3><%= Faker::Lorem.sentence %1> </h3> <br> %>
+<%#       <p> <%= Faker::Lorem.paragraph(10) %1> </p> %>
+<%#     <%end %1> %>
+<%#   </div> %>
+<%#   <% end %1> %>
+<%# </div> %>
+<%# <% end %1> %>
 
 
 <div class="row">
