@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :require_login
-  layout 'splash', only: [:new]
+  layout 'new', only: [:new]
 
   def new
     @page = Page.new
@@ -15,7 +15,8 @@ class PagesController < ApplicationController
     if @page.valid?
       @page.save
       render json: @page.to_json, status: 200
-    else 
+    else
+      byebug
       render :json => { :errors => @page.errors.full_messages }, status: 422
     end
   end

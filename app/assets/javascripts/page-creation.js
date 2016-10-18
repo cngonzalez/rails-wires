@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $("#colorpicker-1").spectrum({
-    color: "grey",
+    color: '#493B49',
     showInput: true,
     move: function(tinycolor) {
       var els = getActiveElements()
@@ -9,7 +9,7 @@ $(document).ready(function() {
     }
   });
   $("#colorpicker-2").spectrum({
-    color: "grey",
+    color: "#493B49",
     showInput: true,
     move: function(tinycolor) {
       var els = getInactiveElements()
@@ -84,7 +84,8 @@ function postToPage(){
     type: 'POST',
     data: data
   }).done(function(response) {
-    console.log(response)
+    //catch errors and alert here as well
+    window.location.href = ('/pages/' + response.id.toString())
   })
 
 }

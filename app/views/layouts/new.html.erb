@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Wires</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'bootstrap.min.css' if (@page && (params[:action] == 'show' || params[:action] == 'edit')) %>
+    <%= stylesheet_link_tag 'spectrum' %>
+    <%= stylesheet_link_tag 'new' %> 
+    <%= stylesheet_link_tag @page.filepath if (@page && (params[:action] == 'show' || params[:action] == 'edit')) %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%# <div class="container"> %>
+      <div class="row">
+      <div id="flash">
+        <%= notify %>
+      </div>
+
+      <%= yield %>
+    </div>
+    </div>
+  </body>
+  </html>

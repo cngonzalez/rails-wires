@@ -1,18 +1,11 @@
 html {
-    background: image-url('splash-image.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-     background-size: cover;
-  }
-
-body {
-  font-family: 'Space Mono', monospace;
-  color: white;
+  background-color: #F9B05B;
 }
 
+
 .splash-box {
-  background: rgba(0,0,0,0.5);
+  background-color: rgba(17,11,17, 0.75);
+  font-color: #8CADA7;
   padding: 20px;
   margin: auto;
   padding: 20px;
@@ -20,7 +13,6 @@ body {
   text-align: center;
   border: 7px dotted white;
 }
-
 .splash-box h1 {
   font-size: 65px;
   color: rgba(255, 255, 255, 0.8);
@@ -39,8 +31,9 @@ body {
 }
 
 #create-table table, td {
-  background-color: grey;
+  background-color: #493B49;
   border: 3px dotted white;
+  color: white;
 }
 
 #create-table {
@@ -57,7 +50,7 @@ h2 {
 }
 
 .cell-contents {
-  background-color: grey;
+  background-color: #493B49;
   height: 150px;
   width: 150px;
   text-align: center;

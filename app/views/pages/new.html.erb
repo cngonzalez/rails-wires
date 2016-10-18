@@ -1,24 +1,23 @@
 
-<div class='splash-box center-splash'>
+<div class='splash-box center-splash page-create'>
   <%= form_errors(@page) %>
   <h2>Create a page </h2>
 
+<div class='padder'>
 <label>Name:</label>
-<input type=text' id='page-name' /><br />
+<input type=text' id='page-name' />
+</div>
 
 <%= render 'grid' %>
 
+<div class='padder'>
 <label>Accent: </label>
 <input id='colorpicker-1' />
 <label>Body: </label>
 <input id='colorpicker-2' />
 <label>Text: </label>
 <input id='colorpicker-3' /><br/> 
-<label>Choose your navigation bar</label>
-<select id="nav-select">
-  <option value="0">Left side navigation bar></option>
-  <option value="1">Top navigation bar</option>
-</select> <br/>
+</div>
 <input type='button' id='submit-this' value='Create page' /> 
 <%# <%= render 'form' %1> %>
 
