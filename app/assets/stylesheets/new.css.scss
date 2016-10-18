@@ -1,9 +1,15 @@
+@font-face {
+    font-family: "Bebas Neue";
+      src: font_url "BebasNeue.otf" format("truetype");
+    }
+
 html {
-  background-color: #F9B05B;
+  background-color: #028090;
 }
 
 
 .splash-box {
+  border: 7px dotted white;
   background-color: rgba(17,11,17, 0.75);
   font-color: #8CADA7;
   padding: 20px;
@@ -11,16 +17,12 @@ html {
   padding: 20px;
   z-index: 2;
   text-align: center;
-  border: 7px dotted white;
 }
-.splash-box h1 {
-  font-size: 65px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
 .splash-box h2 {
   font-size: 40px;
   color: rgba(255, 255, 255, 0.8);
+  font-family: "Bebas Neue";
+
 }
 
 .center-splash {
@@ -31,7 +33,7 @@ html {
 }
 
 #create-table table, td {
-  background-color: #493B49;
+  background-color: #89909F;
   border: 3px dotted white;
   color: white;
 }
@@ -50,7 +52,7 @@ h2 {
 }
 
 .cell-contents {
-  background-color: #493B49;
+  background-color: #89909F;
   height: 150px;
   width: 150px;
   text-align: center;
@@ -73,3 +75,12 @@ h2 {
   width: 50%;
 }
 
+.home-row {
+  padding-bottom: 20px;
+  max-height: 50px;
+}
+
+label {
+ color: #8CADA7;
+ 
+}

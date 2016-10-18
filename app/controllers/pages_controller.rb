@@ -16,7 +16,6 @@ class PagesController < ApplicationController
       @page.save
       render json: @page.to_json, status: 200
     else
-      byebug
       render :json => { :errors => @page.errors.full_messages }, status: 422
     end
   end
