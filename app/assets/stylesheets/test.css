@@ -214,3 +214,7 @@ border-color: grey;
   max-width: 30%;
   margin: 0 auto;
 }
+
+label {
+  color: black;
+}
