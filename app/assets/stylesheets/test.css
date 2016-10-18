@@ -1,17 +1,8 @@
 p { font: 14px/1.8 Georgia, serif; }
 
 
-body {
-  background-color: #263037;
-}
-
 h1, h2, h3 {
   text-align: center;
-  color: white;
-}
-
-form {
-  color: white;
 }
 
 form input {
@@ -132,7 +123,7 @@ form input {
 .splash-box {
   font-family: 'Orbitron', sans-serif;
   font-size: 15px;
-  color: white;
+  color: black;
   margin: auto;
   padding: 20px;
   width: 400px;
@@ -143,13 +134,13 @@ form input {
 
 .splash-box h1 {
   font-size: 65px;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
   letter-spacing: 2px;
 }
 
 .splash-box h2 {
   font-size: 40px;
-  color: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 
 .center-splash {
