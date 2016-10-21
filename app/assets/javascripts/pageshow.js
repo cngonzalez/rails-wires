@@ -57,8 +57,3 @@ $(document).ready(function() {
   });
 });
 
-/* Animate to begin (for codepen preview) */
-
-window.onload = setTimeout(function() {
-  $('.drawer').addClass('active');
-}, 1000);
