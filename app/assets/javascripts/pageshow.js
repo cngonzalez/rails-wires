@@ -34,6 +34,17 @@ function applyOrSave(e){
   }
 }
 
+$('.drawer-toggle').click(function(e) {
+  $('.drawer').toggleClass('active');
+  e.preventDefault();
+});
+document.onkeydown = function(evt) {
+  evt = evt || window.event;
+  if (evt.keyCode == 27) {
+    $('.drawer').toggleClass('active');
+  }
+};
+
 $(document).ready(function() {
   $.get('/pages/' + window.location.href.split("/pages/")[1] + '/page_html').done(function(data) {
     $('#page-contents').html(data);
@@ -45,3 +56,9 @@ $(document).ready(function() {
     applyOrSave(e);
   });
 });
+
+/* Animate to begin (for codepen preview) */
+
+window.onload = setTimeout(function() {
+  $('.drawer').addClass('active');
+}, 1000);

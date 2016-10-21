@@ -1,13 +1,7 @@
 
 <div class='splash-box center-splash page-create'>
   <%= form_errors(@page) %>
-  <div class='home-row'>
-  <h2>Create a page </h2>
-  ></div>
-<div class='padder'>
-<label>Name:</label>
-<input type=text' id='page-name' />
-</div>
+  <h1>CREATE A PAGE</h1>
 
 <%= render 'grid' %>
 
@@ -18,6 +12,11 @@
 <input id='colorpicker-2' />
 <label>Text: </label>
 <input id='colorpicker-3' /><br/> 
+</div>
+
+<div class='padder'>
+<label>Name:</label>
+<input type=text' id='page-name' />
 </div>
 <input type='button' id='submit-this' value='Create page' /> 
 <%# <%= render 'form' %1> %>

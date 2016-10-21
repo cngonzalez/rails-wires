@@ -22,6 +22,11 @@
       </div>
 
       <%= yield %>
+      <% if current_user %> 
+  <%= render 'signed_in' %>
+  <% else %>
+  <% render 'signed_out' %>
+  <% end %>
     </div>
     </div>
   </body>

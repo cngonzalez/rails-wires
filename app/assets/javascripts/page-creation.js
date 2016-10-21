@@ -80,14 +80,16 @@ function postToPage(){
   }}
 
   $.ajax({
-    url: '/pages',
-    type: 'POST',
-    data: data
-  }).done(function(response) {
-    //catch errors and alert here as well
-    window.location.href = ('/pages/' + response.id.toString())
-  })
-
+      url: '/pages',
+      type: 'POST',
+      data: data,
+      success: function(response) {
+        window.location.href = ('/pages/' + response.id.toString())
+      },
+      error: function(response) {
+        alert(response.responseText);
+      }
+    })
 }
 
 function changeElementsColor(els, color) {

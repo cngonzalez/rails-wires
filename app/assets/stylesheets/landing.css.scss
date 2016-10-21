@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Bebas Neue";
+     /* src: url("/fonts/BebasNeue.otf"); */
+    }
+
 html {
     background: image-url('splash-image.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -7,7 +12,7 @@ html {
   }
 
 body {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Bebas Neue', monospace;
   color: white;
 }
 
@@ -21,8 +26,9 @@ body {
   border: 7px dotted white;
 }
 
+
 .splash-box h1 {
-  font-size: 65px;
+  font-size: 85px;
   color: rgba(255, 255, 255, 0.8);
 }
 

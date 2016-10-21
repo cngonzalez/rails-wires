@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       @page.save
       render json: @page.to_json, status: 200
     else
-      render :json => { :errors => @page.errors.full_messages }, status: 422
+      render plain: @page.errors.full_messages.join("\n"), status: 422
     end
   end
 
