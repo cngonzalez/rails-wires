@@ -7,7 +7,9 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'bootstrap.min.css' if (@page && (params[:action] == 'show' || params[:action] == 'edit')) %>
+
     <%= stylesheet_link_tag 'test.css' %>
+    <%= stylesheet_link_tag 'new.css' %>
     <%= stylesheet_link_tag @page.filepath if (@page && (params[:action] == 'show' || params[:action] == 'edit')) %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
@@ -15,18 +17,17 @@
   </head>
 
   <body>
-    <%# <div class="container"> %>
+      <% if current_user %> 
+  <%= render 'signed_in' %>
+  <% else %>
+  <% render 'signed_out' %>
+  <% end %>
       <div class="row">
       <div id="flash">
         <%= notify %>
       </div>
 
       <%= yield %>
-      <% if current_user %> 
-  <%= render 'signed_in' %>
-  <% else %>
-  <% render 'signed_out' %>
-  <% end %>
     </div>
     </div>
   </body>

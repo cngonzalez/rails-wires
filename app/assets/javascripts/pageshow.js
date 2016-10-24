@@ -34,10 +34,6 @@ function applyOrSave(e){
   }
 }
 
-$('.drawer-toggle').click(function(e) {
-  $('.drawer').toggleClass('active');
-  e.preventDefault();
-});
 document.onkeydown = function(evt) {
   evt = evt || window.event;
   if (evt.keyCode == 27) {
@@ -55,5 +51,10 @@ $(document).ready(function() {
     e.preventDefault();
     applyOrSave(e);
   });
+  $('.drawer-toggle').click(function(e) {
+    $('.drawer').toggleClass('active');
+      e.preventDefault();
+  });
+
 });
 

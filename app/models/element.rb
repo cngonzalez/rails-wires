@@ -5,9 +5,7 @@ class Element < ApplicationRecord
     File.open(file, 'a') do |f|
       f.puts self.write_type
       f.puts "overflow: hidden;"
-      f.puts "max-width: #{write_width}" if self.div != 1
-      f.puts "max-height: #{write_height}" if self.div != 0
-      f.puts nav_stats if self.div == 1
+      f.puts nav_stats if self.div < 2
       f.puts self.border_radius
       f.puts "border: solid #{self.color} 3px;"
       f.puts "background-color: #{self.color};"
@@ -23,11 +21,12 @@ class Element < ApplicationRecord
   end
 
   def nav_stats
-    " margin: 0 0 0 0;\n font-family: Arial;\n font-size: 100%;\n width: 100%;\noverflow: hidden;\min-height: 100px;"
+    "margin: 0 0 0 0;\n font-family: Arial;\nfont-size: 100%;\n width: 100%;\noverflow: hidden;\nheight: 100px;"
   end
 
   def write_type
     hash = {
+      0 => 'nav {',
       1 => 'nav {',
       2 => ".circle-#{self.id} {",
       3 => ".rectangle-#{self.id} {"

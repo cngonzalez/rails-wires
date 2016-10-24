@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :require_login
-  layout 'new', only: [:new]
+  layout 'new', only: [:new, :edit]
 
   def new
     @page = Page.new
