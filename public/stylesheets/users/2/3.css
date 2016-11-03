@@ -1,0 +1,38 @@
+.element-sidebar {
+overflow: hidden;
+max-width: 650px;
+border-radius: 3px;
+border: solid #DFD9E2 3px;
+background-color: #DFD9E2;
+}
+
+.circle-8 {
+overflow: hidden;
+max-width: 650px;
+max-height: 650px;
+border-radius: 50%;
+border: solid #DFD9E2 3px;
+background-color: #DFD9E2;
+}
+
+.circle-8 img {opacity: 0.75;
+object-fit: cover;
+}
+
+.circle-9 {
+overflow: hidden;
+max-width: 650px;
+max-height: 650px;
+border-radius: 50%;
+border: solid #DFD9E2 3px;
+background-color: #DFD9E2;
+}
+
+.circle-9 img {opacity: 0.75;
+object-fit: cover;
+}
+
+body {
+background: #C3ACCE;}
+h3, p, label {color: #028090;}
+ 
